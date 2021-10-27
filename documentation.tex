@@ -1,0 +1,146 @@
+\documentclass{article}
+%packages
+\usepackage{graphicx}
+\usepackage{epigraph}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage[compat=1.1.0]{tikz-feynman}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[font={small,it}]{caption}
+%\usepackage[a5paper, total={4.5in, 7in}]{geometry} %formato libro piccolo
+\usepackage[a4paper, total={7.5in, 10.35in}]{geometry} %formato libro A4
+\usepackage{hyperref}
+\usepackage{color,soul}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{imakeidx}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage{physics}
+\makeindex[options=-s mystyle.ist]
+\usepackage{simplewick}
+%\usepackage{empheq}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{braket}
+\graphicspath{ {./images/} }
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{subcaption}
+\usepackage{kpfonts}
+\usepackage{listings}
+\usepackage{xcolor}
+% bibliography
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    sorting=ynt
+]{biblatex}
+\addbibresource{bibliography/bibliography.bib}
+% algorithm
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}%
+% multicolumns
+\usepackage{multicol}
+
+\title{Motorize a 1980 dad's telescope}
+
+\author{Sebastiano Cocchi \& Stefano Cocchi}
+
+\date{\today}
+
+\begin{document}
+    
+    \maketitle
+
+    \begin{abstract}
+        A 1980 (old and dusty) equatorial telescope is converted to an up-to-date, motorized and computer-connected telescope.
+        We, me and my father, illustrate all the transformation steps from an old, dusty and unused telescope into an optimal tool for astrophotography.
+    \end{abstract}
+
+    \tableofcontents
+
+    \begin{multicols}{2}
+        \section{Telescope Description}
+        The starting point of the project if of course the telescope.
+        In our garage, for many years, a 1980 Urania telescope has eaten a lot of dust.
+        The telescope's mirror resent of years in humidity and temperature jumps in the garage.
+        In the beginning, we have cleaned the silvered-mirror with soap and water, but the silver seemed to be a bit compromised.
+        We do not talk long about this telescope, since we have soon substituted it with a brand-new Skywatcher Quattro.
+        The latter is placed on the Urania mount, since it is still a nice mount and, in our advice, has still not surpassed robustness.
+        Indeed, the mount is a very robust equatorial and motorized (still works!) mount.
+        
+        For our money, but most importantly for our fun and entertainment, we decided to modernize our old telescope.
+
+        \subsection{Urania telescope}
+        We briefly add the specifics of the old Urania telescope, as a sort of respect for many years of honorable work before the deep dark garage.
+
+        The telescope is a Urania C.R.T NX 155.
+        \\
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \begin{tabular}{c|c}
+                Specific name & value \\
+                \hline
+                aperture (mm) & \\
+                focal length & \\
+                magnification & \\
+                focal ratio & \\
+                resolving power & 
+            \end{tabular}
+            \captionof{table}{Urania C.R.T NX 155.}
+        \end{minipage}
+        \\
+        \hl{mettere foto}
+
+        \subsection{Skywatcher 8P Quattro telescope}
+        Skywatcher 8P Quattro Newtonian telescope offer an optimal astrophotography performance.
+        For this reason we have decided to substitute the Urania telescope with this brand-new Skywatcher telescope.
+        \\
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \begin{tabular}{c|c}
+                Specific name & value \\
+                \hline
+                type & Riflettore \\
+                technique & Newton  \\
+                material & Carbon  \\
+                weight (kg) & 8.0 \\
+                aperture (mm) & 200 \\
+                focal length (mm) & 800 \\
+                focal & f/4 \\
+                resolution power & 0.58 \\
+                limit magnitude value (mag) & 13.3 \\
+                collect light & 820 \\
+                magnification & 400 \\
+                Mirror Treatment & Aluminum Coating \\
+                Focuser & Crayford dual-speed 50.8 / 31.8 
+            \end{tabular}
+            \captionof{table}{Skywatcher 8P Quattro}
+        \end{minipage}
+        \\
+        \hl{mettere foto}
+
+        \subsection{Telescope mount}
+        The telescope is place onto an aeronautic Aluminum tripod equatorial mount.
+        \hl{quanto pesa? }
+        \hl{ metti immagine}
+        Starting from the bottom, from a central post, three pods of 30cm depart from the center. Each one has a wheel which permits the structure to move freely and then to fix the position using stops.
+        The central post terminates with the second post with an inclination equal to the Earth's ecliptic \(23.43^{\circ} = 23^{\circ} 26'\).
+
+        This axis must be aligned with the Polar star (labelling the North).
+        In this way, a 3W electric motor can follow the sky movement.
+
+        Departing from this second axis, a two-arms fork is free to rotate around two degrees-of-freedom defining the right ascension (RA) and the declination (DEG).
+        The two arms are separated by the distance \(d = 15\)mm which is the Urania telescope aperture.
+
+        \section{Telescope substitution}
+        Passing from the Urania telescope to Skywatcher telescope we have faced the problem of how to insert the latter in the telescope mount.
+
+
+
+        \section{Optics list}
+
+    \end{multicols}
+\end{document}
