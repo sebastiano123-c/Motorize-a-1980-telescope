@@ -83,19 +83,16 @@
             \begin{tabular}{c|c}
                 Specific name & value \\
                 \hline
-                type & riflettore \\
+                type & reflector \\
                 technique & Newton  \\
                 material & PVC  \\
-                weight (kg) & 8.0 \\
+                weight (kg) & 10 \\
                 aperture (mm) & 155 \\
                 focal length (mm) & 1000 \\
-                focal & f/4 \\
+                focal & f/6.5 \\
                 resolution power & 0.8 \\
                 limit magnitude value (mag) & 13.6 \\
-                collect light & 820 \\
-                magnification & 400 \\
                 Mirror Treatment & Silica monoxide \\
-                Focuser & 10x30 \\
                 \hline
             \end{tabular}
             \captionof{table}{Urania C.R.T. NX 155 specifics.}
@@ -125,11 +122,11 @@
                 focal length (mm) & 800 \\
                 focal & f/4 \\
                 resolution power & 0.58 \\
-                limit magnitude value (mag) & 13.3 \\
+                limit magnitude (mag) & 13.3 \\
                 collect light & 820 \\
                 magnification & 400 \\
                 Mirror Treatment & Aluminum Coating \\
-                Focuser & Crayford dual-speed 50.8 / 31.8 \\
+                Focuser & Crayford dual-speed 50.8/31.8 \\
                 \hline
             \end{tabular}
             \captionof{table}{Skywatcher 8P Quattro}
@@ -174,7 +171,37 @@
 
         \section{Telescope substitution: from Urania's tube to Skywatcher's tube}
         Passing from the Urania telescope to Skywatcher telescope we have faced the problem of how to insert the latter in the telescope mount.
-        \hl{papa conosce meglio questa parte}
+        Indeed, since Skywatcher's telescope diameter is 200mm it does not fit inside the mount fork.
+
+        Our solution is to insert a seat in which to place the telescope.
+        The barycenter of the telescope is not centered with the DEC axis, thus we have settled a post capable of holding weights to balance the forces.
+        See figure \ref{fig:piastra_DEC} and \ref{fig:piastra_particular}.
+        \\
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \includegraphics[scale=0.5]{images/DEC_sede.jpg}
+            \captionof{figure}{The mechanism built to insert Skywatcher's telescope into the Urania robust mount.}
+            \label{fig:piastra_DEC}
+        \end{minipage}
+        \\
+        \begin{minipage}
+            {0.5\textwidth}
+            \centering
+            \includegraphics[scale=0.5]{images/DEC_piastra.jpg}
+            \captionof{figure}{Particular of the plate.}
+            \label{fig:piastra_particular}
+        \end{minipage}
+        \\
+        The scheme with distances is visible in figure \ref{fig:DEC_piastra_dimensioni}.
+        \\
+        \begin{minipage}
+            {0.5\textwidth}
+            \centering
+            \includegraphics[scale=0.75]{images/DEC_piastra_dimensioni.png}
+            \captionof{figure}{Schematic view of the telescope mount insertion. This represents only the structure we have build with some metal squared bars upon which the two white loops (which hold the telescope tube) are fixed and are not illustrated in this scheme. The two holes in each arm serve to fix the structure on the mount. }
+            \label{fig:DEC_piastra_dimensioni}
+        \end{minipage}
+
 
 
         \section{Motorization: the mechanics}
@@ -196,7 +223,7 @@
         Using this structure, for a continuous sky tracking, the elder motor would complete a round of the endless screw in 4 minutes.
         Thus, this mechanism rotates the mount with the velocity of a degree in 4 minutes (which is the velocity of the sky moving away in the night).
 
-        We have reduced the ratio by a third adding two other gears (see figure \ref{fig:fig:RA_mechanization}): 60 teeth gear positioned in the shaft and a 20 teeth gear on the motor shaft.
+        We have reduced the ratio by a third adding two other gears (see figure \ref{fig:RA_mechanization}): 60 teeth gear positioned in the shaft and a 20 teeth gear on the motor shaft.
         \\
         \begin{minipage}{.5\textwidth}
             \centering
@@ -251,22 +278,22 @@
                 \hline
                 Manufacturer code & 17HM15-0904S\\
                 Engine type & bipolar\\
-                Pitch angle & 0.9 degrees\\
-                Sealing pair & 36 Ncm (51oz.in)\\
-                Rated current/phase & 0.9 A\\
-                Phase resistance & 60 Ohm\\
-                Voltage & 5.4 V\\
-                Inductivity & 12 mh 20\% (1 kHz)\\
+                Pitch angle (deg) & 0.9 \\
+                Sealing pair (Ncm)& 36\\
+                Rated current/phase (A) & 0.9\\
+                Phase resistance (Ohm)& 60\\
+                Voltage (V)& 5.4\\
+                Inductance (mH)& 12 \(\pm\) 20\% (1 kHz)\\
                 &\\
                 \textbf{Physical specifications}&\\
                 \hline
-                Frame dimensions & 42 x 42 mm\\
-                Body length & 40 mm\\
-                Shaft diameter & 5 mm\\
-                Stem length & 22 mm\\
-                D-cut length & 15 mm\\
-                Number of Leds & 4\\
-                Lead number & 300 mm\\
+                Frame dimensions (mm\(^2\))& 42x42 \\
+                Body length (mm)& 40 \\
+                Shaft diameter (mm)& 5 \\
+                Stem length (mm)& 22 \\
+                D-cut length (mm)& 15 \\
+                Number of leds & 4\\
+                Lead number (mm)& 300 \\
                 Weight & 280 g\\
                 \hline
             \end{tabular}
