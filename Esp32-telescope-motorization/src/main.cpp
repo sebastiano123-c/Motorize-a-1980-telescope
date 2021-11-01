@@ -1,4 +1,5 @@
 #include <Arduino.h>
+<<<<<<< HEAD
 
 // CNC Shield Stepper  Control Demo
 // Superb Tech
@@ -52,3 +53,17 @@ delay(1000); // delay for 1 second
 //   delay(500);
 //   digitalWrite(LED,LOW);
 // }
+=======
+#define ONBOARD_LED  2
+
+void setup() {
+  pinMode(ONBOARD_LED,OUTPUT);
+}
+
+void loop() {
+  delay(1000);
+  digitalWrite(ONBOARD_LED,HIGH);
+  delay(100);
+  digitalWrite(ONBOARD_LED,LOW);
+}
+>>>>>>> 0b92752b225b31779064c182d74fcb9dc9274334
