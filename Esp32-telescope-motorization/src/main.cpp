@@ -1,33 +1,54 @@
 #include <Arduino.h>
-#include <Stepper.h>
 
-const int stepsPerRevolution = 1000;  // change this to fit the number of steps per revolution
-// for your motor
+// CNC Shield Stepper  Control Demo
+// Superb Tech
+// www.youtube.com/superbtech
 
-// initialize the stepper library on pins 8 through 11:
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+const int StepX = 26;//2;
+const int DirX = 16;//5;
+const int StepY = 25;//3;
+const int DirY = 27;//6;
 
 void setup() {
-  // set the speed at 60 rpm:
-  myStepper.setSpeed(20);
-  // initialize the serial port:
-  Serial.begin(9600);
+  pinMode(StepX, OUTPUT);
+  pinMode(DirX, OUTPUT);
+  pinMode(StepY, OUTPUT);
+  pinMode(DirY, OUTPUT);
 }
 
 void loop() {
-  myStepper.step(-stepsPerRevolution);
+digitalWrite(DirX, HIGH);
+digitalWrite(DirY, LOW);
+ 
+ for(int x = 0; x < 200; x++) { // loop for 200 steps
+  digitalWrite(StepX, HIGH);
+  delayMicroseconds(500);
+  digitalWrite(StepX, LOW); 
+  delayMicroseconds(500);
+ }
+delay(1000); // delay for 1 second
+
+for(int x = 0; x < 200; x++) { // loop for 200 steps
+  digitalWrite(StepY, HIGH);
+  delayMicroseconds(500);
+  digitalWrite(StepY, LOW); 
+  delayMicroseconds(500);
+ }
+delay(1000); // delay for 1 second
 }
 
 
-// #define ONBOARD_LED  2
+// #include <Arduino.h>
+// #define LED 2
 
 // void setup() {
-//   pinMode(ONBOARD_LED,OUTPUT);
+//   // Set pin mode
+//   pinMode(LED,OUTPUT);
 // }
 
 // void loop() {
-//   delay(1000);
-//   digitalWrite(ONBOARD_LED,HIGH);
-//   delay(100);
-//   digitalWrite(ONBOARD_LED,LOW);
+//   delay(500);
+//   digitalWrite(LED,HIGH);
+//   delay(500);
+//   digitalWrite(LED,LOW);
 // }
