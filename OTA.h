@@ -21,32 +21,30 @@ class OTA{
         OTA(const char* hostName, const char* ssidName, const char* passwordString);
 
         // functions
-        void setupWiFi();
-        void handleWiFi();
+        void setupOTA();
+        void handleOTA();
 };
 
-OTA::OTA()(const char* hostName, const char* ssidName, const char* passwordString) {
+OTA::OTA(const char* hostName, const char* ssidName, const char* passwordString) {
     host = hostName;
     ssid = ssidName;
     password = passwordString;
 }
 
-void OTA::setupWiFi(void){
+void OTA::setupOTA(void){
     Serial.begin(115200);
-    Serial.println("Booting");
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, password);
     while (WiFi.waitForConnectResult() != WL_CONNECTED) {
         Serial.println("Connection Failed! Rebooting...");
         delay(5000);
-        ESP.restart();
     }
 
     // Port defaults to 3232
     // ArduinoOTA.setPort(3232);
 
     // Hostname defaults to esp3232-[MAC]
-    // ArduinoOTA.setHostname("myesp32");
+    ArduinoOTA.setHostname(host);
 
     // No authentication by default
     // ArduinoOTA.setPassword("admin");
@@ -88,6 +86,6 @@ void OTA::setupWiFi(void){
     Serial.println(WiFi.localIP());
 }
 
-void OTA::handleWiFi(){
+void OTA::handleOTA(){
     ArduinoOTA.handle();
 }

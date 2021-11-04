@@ -4,7 +4,6 @@
 \usepackage{epigraph}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{luainputenc}
-\usepackage[compat=1.1.0]{tikz-feynman}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage[font={small,it}]{caption}
@@ -24,7 +23,7 @@
 \usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{braket}
-\graphicspath{ {./images/} }
+\graphicspath{ {./} }
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{subcaption}
@@ -43,6 +42,9 @@
 \usepackage[noend]{algpseudocode}%
 % multicolumns
 \usepackage{multicol}
+\usepackage{lmodern}
+% images folder
+\graphicspath{ {./images/} }
 
 \title{Motorize 1980 dad's telescope}
 
@@ -60,6 +62,16 @@
     \end{abstract}
 
     \tableofcontents
+
+    % \begin{minipage}
+    %     {0.6\textwidth}
+    %     \tableofcontents 
+    % \end{minipage}
+    % \begin{minipage}
+    %     {0.4\textwidth}
+    %     \centering
+    %     \includegraphics[scale=0.2]{telescope_image.jpg}
+    % \end{minipage}
 
     \begin{multicols}{2}
         \section{Telescope Description}
@@ -100,7 +112,7 @@
         \\
         \begin{minipage}{0.5\textwidth}
             \centering
-            \includegraphics[scale=0.4]{images/urania_upper.jpg}
+            \includegraphics[scale=0.4]{urania_upper.jpg}
             \captionof{figure}{Urania telescope and mount.}
             \label{fig:urania_telescope_mount}
         \end{minipage}
@@ -130,12 +142,13 @@
                 \hline
             \end{tabular}
             \captionof{table}{Skywatcher 8P Quattro}
+            \label{tab_skywatcher_quattro}
         \end{minipage}
         \\
         \\
         \begin{minipage}{0.5\textwidth}
             \centering
-            \includegraphics[scale=0.2]{images/newton-quattro-200-sky-watcher.jpg}
+            \includegraphics[scale=0.2]{newton-quattro-200-sky-watcher.jpg}
             \captionof{figure}{Skywatcher Quattro telescope.}
             \label{fig:skywatcher_telescope_mount}
         \end{minipage}
@@ -179,7 +192,7 @@
         \\
         \begin{minipage}{0.5\textwidth}
             \centering
-            \includegraphics[scale=0.5]{images/DEC_sede.jpg}
+            \includegraphics[scale=0.5]{DEC_sede.jpg}
             \captionof{figure}{The mechanism built to insert Skywatcher's telescope into the Urania robust mount.}
             \label{fig:piastra_DEC}
         \end{minipage}
@@ -187,7 +200,7 @@
         \begin{minipage}
             {0.5\textwidth}
             \centering
-            \includegraphics[scale=0.5]{images/DEC_piastra.jpg}
+            \includegraphics[scale=0.5]{DEC_piastra.jpg}
             \captionof{figure}{Particular of the plate.}
             \label{fig:piastra_particular}
         \end{minipage}
@@ -197,11 +210,50 @@
         \begin{minipage}
             {0.5\textwidth}
             \centering
-            \includegraphics[scale=0.75]{images/DEC_piastra_dimensioni.png}
+            \includegraphics[scale=0.75]{DEC_piastra_dimensioni.png}
             \captionof{figure}{Schematic view of the telescope mount insertion. This represents only the structure we have build with some metal squared bars upon which the two white loops (which hold the telescope tube) are fixed and are not illustrated in this scheme. The two holes in each arm serve to fix the structure on the mount. }
             \label{fig:DEC_piastra_dimensioni}
         \end{minipage}
 
+        \section{Motorization: microcontrollers}
+        \subsection{The Arduino experience}
+        We decide to write this section more as an advertisement to not follow this way than for other purposes.
+
+        The first, natural, approach was to try to use some at-home-technology.
+        Alone on a shelf, an Arduino UNO R3 card was waiting to take part of another project with some friends: a 28BYJ-48 stepper motor and colorful cables.
+        What a better occasion to be mounted on the telescope in turns of the 3W motor?
+
+        With some fortunate events, the stepper motor is adapted to the telescope's rotating shaft.
+        Was it good as a tracker motor with a constant motion?
+        The answer is no.
+        Indeed, some tests revealed bad performances like the inconstant rotation and several stops due to lack of robustness of the motor.
+        This result was easily supposed from the beginning, but this try was costs-less, \(i.e.\) free since all the components were at home.
+        Indeed, citing Wayne Gretsky:
+        \begin{quote}
+            "you miss one hundred percent of the shots you don't take",
+        \end{quote}
+        so it was a matter of must-a-do proof.
+        It also gave us the opportunity to face some \textit{engineering} problems.
+
+        The 28BYJ-48 stepper motor, sadly, returns onto its shelf as, shortly after, would do the Arduino UNO card.
+
+        \subsection{ESP32}
+        After buying the new stepper motor, on the internet we have found good impressions on the ESP32 microcontroller.
+        ESP32 is a series of low-cost, low-power system on a chip microcontroller with integrated Wi-Fi and dual-mode Bluetooth.
+        We've bought it. Also, Arduino returned on the self with its friends.
+
+        \subsection{CNC Shield V3}
+        To better optimize space and wires connections, we have bought a CNC Shield V3 (\(aka\) CNC3), see figure \ref{fig:cnc3}.
+        \begin{minipage}
+            {0.5\textwidth}
+            \centering
+            \includegraphics[scale=0.5]{CNC3.jpg}
+            \captionof{figure}{CNC3 Shield V3.}
+            \label{fig:cnc3}
+        \end{minipage}
+        It is an add-on shield, built to be used for 3D printers.
+        It has 4 slots, each one can host a motor driver.
+        
         \section{Motorization: the mechanics}
         The motorization of the telescope passes through two mechanics adjustments:
         \begin{enumerate}
@@ -237,37 +289,45 @@
         \\
         \begin{minipage}{.5\textwidth}
             \centering
-            \includegraphics[scale=0.5]{images/RA_motorization.jpg}  
+            \includegraphics[scale=0.5]{RA_motorization.jpg}  
             \captionof{figure}{Nema 17 stepper motor and gear adjustment.}
             \label{fig:RA_mechanization}         
         \end{minipage}
 
         \subsection{DEC motorization}
-        \hl{ancora da pensare}
+        \subsubsection{DEC V1}
+        The first version is made using the built-in graded disk mounted on the telescope.
+        On this, is attached a 32cm long chain strip.
+        Then, a 1/3 reduction shaft is positioned between the first gear and the stepper motor's gear.
+        The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec}.
+        Figure \ref{fig:DEC_mechanism} is a picture of the mechanism.
 
-        \section{Motorization: the software}
-        \subsection{The Arduino experience}
-        We decide to write this section more as an advertisement to not follow this way than for other purposes.
+        \begin{minipage}
+            {0.5\textwidth}
+            \centering
+            \begin{tabular}{cc}
+                Gear number & number of teeth \\
+                \hline
+                1 & 188 \\
+                2 & 20 \\
+                3 & 60 \\
+                4 & 20 \\
+                \hline
+                total ratio & \(\sim \frac{1}{28}\)
+            \end{tabular}
+            \captionof{table}{DEC mechanism's gear specifics.}
+            \label{tab:DEC_gear_spec}
+        \end{minipage}
+        \\
+        \begin{minipage}
+            {0.5\textwidth}
+            \centering
+            \includegraphics[scale=.28]{DEC_motorization.jpg}
+            \captionof{figure}{DEC mechanism.}
+            \label{fig:DEC_mechanism}
+        \end{minipage}
 
-        The first, natural, approach was to try to use some at-home-technology.
-        Alone on a shelf, an Arduino UNO R3 card was waiting to take part of another project with some friends: a 28BYJ-48 stepper motor and colorful cables.
-        What a better occasion to be mounted on the telescope in turns of the 3W motor?
-
-        With some fortunate events, the stepper motor is adapted to the telescope's rotating shaft.
-        Was it good as a tracker motor with a constant motion?
-        The answer is no.
-        Indeed, some tests revealed bad performances like the inconstant rotation and several stops due to lack of robustness of the motor.
-        This result was easily supposed from the beginning, but this try was costs-less, \(i.e.\) free since all the components were at home.
-        Indeed, citing Wayne Gretsky:
-        \begin{quote}
-            "you miss one hundred percent of the shots you don't take",
-        \end{quote}
-        so it was a matter of must-a-do proof.
-        It also gave us the opportunity to face some \textit{engineering} problems.
-
-        The 28BYJ-48 stepper motor, sadly, returns onto its shelf as, shortly after, would do the Arduino UNO card.
-
-        \subsection{RA stepper motor}
+        \subsection{RA and DEC stepper motors}
         In little internet journey we found a new stepper motor with a nema 17 standard; its characteristics are in table \ref{tab:nema_17_specifics}.
         \begin{minipage}{0.5\textwidth}
             \centering
@@ -290,7 +350,7 @@
                 Shaft diameter (mm)& 5 \\
                 Stem length (mm)& 22 \\
                 D-cut length (mm)& 15 \\
-                Number of leds & 4\\
+                Number of LEDs & 4\\
                 Lead number (mm)& 300 \\
                 Weight & 280 g\\
                 \hline
@@ -299,12 +359,37 @@
             \label{tab:nema_17_specifics}
         \end{minipage}
 
-        \section{ESP32}
-        After buying the new stepper motor, on the internet we have found good impressions on the ESP32 microcontroller.
-        ESP32 is a series of low-cost, low-power system on a chip microcontrollers with integrated Wi-Fi and dual-mode Bluetooth.
-        We've bought it. Also Arduino returned on the self with its friends.
+        \section{The software: OnStep}
+        On the internet, we have found a great, open-source, free and customizable software called OnStep.\footnote{Wiki groups:\url{https://onstep.groups.io/g/main/wiki/3860}.\\Github:\url{https://github.com/hjd1964/OnStep}.}
+        We have followed the instructions for the WeMos D1 \(+\) CNC V3 project and configured the Config.h file and upload the sketch on the ESP32 board.
+        \begin{minipage}
+            {0.5\textwidth}
+            \centering
+            \begin{tabular}{cc}
+                Variable & value \\
+                \hline
+                \texttt{PINMAP} & CNC3\\
+                \texttt{SERIAL\_A\_BAUD\_DEFAULT} & 115200 \\
+                \texttt{SERIAL\_B\_BAUD\_DEFAULT} & 115200 \\
+                \texttt{SERIAL\_C\_BAUD\_DEFAULT} &  ON \\
+                \texttt{MOUNT\_TYPE} & FORK \\
+                \texttt{BUZZER} & ON\\
+                \texttt{BUZZER\_STATE\_DEFAULT} & ON\\
+                \texttt{SLEW\_RATE\_BASE\_DESIRED} & 1.0\\
+                \texttt{AXIS1\_STEPS\_PER\_DEGREE} & 38293.333 \\
+                \texttt{AXIS1\_STEPS\_PER\_WORMROT} & 38400\\ 
+                \texttt{AXIS1\_DRIVER\_MODEL} & DRV8825\\
+                \texttt{AXIS1\_DRIVER\_MICROSTEPS} & 32 \\
+                \texttt{AXIS2\_STEPS\_PER\_DEGREE} & 1002.66667 \\
+                \texttt{AXIS2\_DRIVER\_MODEL} & DRV8825 \\
+                \texttt{AXIS2\_DRIVER\_MICROSTEPS} & 32 \\
+            \end{tabular}
+            \captionof{table}{Config.h variables.}
+            \label{fig:config_h}
+        \end{minipage}
 
-        \section{Optics list}
+        \section{Cable management}
+        The microcontroller, the CNC3 shield and 
 
     \end{multicols}
 \end{document}

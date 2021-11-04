@@ -125,8 +125,8 @@ class OTAWebServer{
     const char* ssid;
     const char* password;
 
-    void setupWebServer();
-    void handleWebServer();
+    void setupOTA();
+    void handleOTA();
 
     // constructor
     OTAWebServer(const char* x, const char* y, const char* z) {
@@ -137,7 +137,7 @@ class OTAWebServer{
 };
 
 // functions
-void OTAWebServer::setupWebServer(void) {
+void OTAWebServer::setupOTA(void) {
   Serial.begin(115200);
 
   // Connect to WiFi network
@@ -200,6 +200,6 @@ void OTAWebServer::setupWebServer(void) {
   server.begin();
 }
 
-void OTAWebServer::handleWebServer(void){
+void OTAWebServer::handleOTA(void){
   server.handleClient();
 }
