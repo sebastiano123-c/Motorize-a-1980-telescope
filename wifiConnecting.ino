@@ -9,7 +9,7 @@ OTA myWiFi("Kepler1-esp32-03", WIFI_SSID, WIFI_PASSWORD);
 
 void setup() {
   Serial.begin(115200);
-  myWiFi.setupWiFI();
+  myWiFi.setupWiFi();
   pinMode(LED_BUILTIN, OUTPUT);
 }
 

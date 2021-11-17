@@ -230,20 +230,125 @@
         The answer is no.
         Indeed, some tests revealed bad performances like the inconstant rotation and several stops due to lack of robustness of the motor.
         This result was easily supposed from the beginning, but this try was costs-less, \(i.e.\) free since all the components were at home.
-        Indeed, citing Wayne Gretsky:
+        Indeed, citing Wayne Gretzky:
         \begin{quote}
             "you miss one hundred percent of the shots you don't take",
         \end{quote}
         so it was a matter of must-a-do proof.
         It also gave us the opportunity to face some \textit{engineering} problems.
-
+        
+        During a little internet journey, we have found a new stepper motor with a nema 17 standard;
+        we have bought two kinds: one of the more robust stepper motors on store and one less robust.
+        
         The 28BYJ-48 stepper motor, sadly, returns onto its shelf as, shortly after, would do the Arduino UNO card.
+
+        \subsection{Stepper motors}
+        In this subsection we write the specifics of the stepper motors used for the RA and DEC mechanization (for both we have used nema 17 motors) and the focuser (developed with a nema 11 stepper motor).
+
+        \subsubsection{RA stepper motor}
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \begin{tabular}{cc}
+                \textbf{17HM15-0904S stepper motor}&\\
+                Electronics&\\
+                \hline
+                Manufacturer code & 17HM15-0904S\\
+                Engine type & bipolar\\
+                Pitch angle (deg) & 0.9 \\
+                Torque (Ncm)& 36\\
+                Rated current/phase (A) & 0.9\\
+                Phase resistance (Ohm)& 60\\
+                Voltage (V)& 5.4\\
+                Inductance (mH)& 12 \(\pm\) 20\% (1 kHz)\\
+                 & \\
+                Physical specifications&\\
+                \hline
+                Frame dimensions (mm\(^2\))& 42x42 \\
+                Body length (mm)& 40 \\
+                Shaft diameter (mm)& 5 \\
+                Stem length (mm)& 22 \\
+                D-cut length (mm)& 15 \\
+                Number of cables & 4\\
+                Lead number (mm)& 300 \\
+                Weight (g) & 280\\
+                \hline
+            \end{tabular}
+            \captionof{table}{Nema 17 stepper motor for the RA motion specifics.}
+            \label{tab:nema_17_specifics}
+        \end{minipage}
+
+        \subsubsection{DEC stepper motor}
+        
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \begin{tabular}{cc}
+                \textbf{17HM19-2004S1 stepper motor}&\\
+                Electronics&\\
+                \hline
+                Manufacturer code & 17HM19-2004S1\\
+                Engine type & bipolar\\
+                Pitch angle (deg) & 0.9 \\
+                Torque (Ncm)& 46\\
+                Rated current (A) & 2\\
+                Phase resistance (Ohm)& 1.4\\
+                Voltage (V)& 2.8\\
+                Inductance (mH)& 4\\
+                 & \\
+                Physical specifications&\\
+                \hline
+                Frame dimensions (mm\(^2\))& 42x42 \\
+                Body length (mm)& 48 \\
+                Shaft diameter (mm)& 5 \\
+                Stem length (mm)& 24 \\
+                D-cut length (mm)& 24 \\
+                Number of cables & 4\\
+                Lead number (mm)& 500 \\
+                Weight (g) & 370\\
+                \hline
+            \end{tabular}
+            \captionof{table}{Nema 17 stepper motor for the DEC motion specifics.}
+            \label{tab:nema_17_specifics_2}
+        \end{minipage}
+
+        \subsubsection{Focuser stepper motor}
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \begin{tabular}{cc}
+                \textbf{11HS12-0674S stepper motor}&\\
+                Electronics&\\
+                \hline
+                Manufacturer code & 11HS12-0674S\\
+                Engine type & bipolar\\
+                Pitch angle (deg) & 1.8 \\
+                Torque (Ncm)& 7\\
+                Rated current (A) & 0.67\\
+                Phase resistance (Ohm)& 5.6\\
+                Voltage (V)& 3.8\\
+                Inductance (mH)& 4.2\\
+                 & \\
+                Physical specifications&\\
+                \hline
+                Frame dimensions (mm\(^2\))& 28x28 \\
+                Body length (mm)& 31.5 \\
+                Shaft diameter (mm)& 5 \\
+                Stem length (mm)& 20 \\
+                Number of cables & 4\\
+                Lead number (mm)& 300 \\
+                Weight (g) & 110\\
+                \hline
+            \end{tabular}
+            \captionof{table}{Nema 11 stepper motor for the focuser motion specifics.}
+            \label{tab:nema_11_specifics}
+        \end{minipage}
 
         \subsection{ESP32}
         After buying the new stepper motor, on the internet we have found good impressions on the ESP32 microcontroller.
         ESP32 is a series of low-cost, low-power system on a chip microcontroller with integrated Wi-Fi and dual-mode Bluetooth.
         We've bought the ESP32 D1 R32, the one in figure \ref{fig:esp32}, for better attaching the motor using the CNC shield V3 (which is briefly explained in the following).
         Also, Arduino returned on the self with its friends.
+
+        We bumped into a OnStep project (at \url{https://onstep.groups.io/g/main/wiki/19670}) which an open source software providing the control of four stepper motors (RA, DEC, focuser and rotator for astrophotography), weather sensor handling, Wi-Fi and Bluetooth connection, polar alignment and other nice features.
+        We decided to follow the "Wemos R32 and CNC V3" project.
         
         \begin{minipage}
             {.5\textwidth}
@@ -282,7 +387,7 @@
         \end{minipage}
 
         \subsection{Power supply}
-        The power supply is provided by a 12V 5A power supply as in table \ref{tab:power_supply}.
+        The power supply is provided by a 19V 5A power supply as in table \ref{tab:power_supply}.
 
         \begin{minipage}
             {.5\textwidth}
@@ -290,7 +395,7 @@
             \begin{tabular}{cc}
                  voltage output (V) & current output (A) \\
                  \hline
-                12.3 & 5 \\
+                19.3 & 4.74 \\
             \end{tabular}
             \captionof{table}{Nominal tension and current outputs of the power supply.}
             \label{tab:power_supply}
@@ -299,6 +404,13 @@
         For our initial purposes it was enough, indeed 5A are enough to feed quite well two stepper motors and a poor electronics.
         A rough estimation poses 1.8A for DEC motor, 0.9A for RA motor and few milliampéres for the ESP32. 
         The reader is strongly encouraged to check the total current its circuit needs before buying a power supply.
+
+        \subsection{Sensors: Wi-Fi connection, Real time clock (RTC) and weather sensor (BMP280)}
+        An ESP8688 WeMos D1 mini is connected to the CNC3 as shown in \url{https://onstep.groups.io/g/main/wiki/19670}.
+
+        This OnStep has a software addon called the Smart Web Server (SWS) which provides WiFi or Ethernet connections over IP.
+        Many devices support this type of connection including cell-phones, tablets, laptop/desktop computers, etc.
+        Using this library, it is possible to use programs such as Stellarium via ASCOM drivers provided by the OnStep project \url{http://www.stellarjourney.com/index.php?r=site/software_telescope}.
 
         \section{Motorization: the mechanics}
         The motorization of the telescope passes through two mechanics adjustments:
@@ -339,8 +451,17 @@
             \captionof{figure}{Nema 17 stepper motor and gear adjustment.}
             \label{fig:RA_mechanization}         
         \end{minipage}
+        \\
+        We have choose to install a nema 17 stepper motor with the specifics in table \ref{tab:nema_17_specifics}
 
         \subsection{DEC motorization}
+        The mechanization of the DEC axis was a bit more complicated since there was not a built-in gear to use.
+        We tried different versions.
+        A first successfully try was to exploit a stand-alone disk.
+        On the edge of the latter are present some ticks and grades: it was used a declination angle teller.
+
+        As told above, we have tried different configurations but same stepper motor is used.
+
         \subsubsection{DEC V1}
         The first version is made using the built-in graded disk mounted on the telescope.
         On this, is attached a 32cm long chain strip.
@@ -372,10 +493,13 @@
             \captionof{figure}{DEC mechanism.}
             \label{fig:DEC_mechanism}
         \end{minipage}
+        \\
+        This solution seemed to be efficient, but easy to adjust.
+        Also, the stage reduction is too low for a good movement precision.
 
         \subsubsection{DEC V2}
         The second version is made uses again the built-in graded disk mounted on the telescope.
-        Also on this, is attached a 32cm long chain strip.
+        Also on this construction is glued a 32cm long chain strip.
         Then, a 1/9 reduction is positioned between the first stage and the stepper motor.
         The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v2}.
         Figure \ref{fig:DEC_mechanism_v2} is a picture of the mechanism.
@@ -402,77 +526,12 @@
         \begin{minipage}
             {0.5\textwidth}
             \centering
-            \includegraphics[scale=.25]{DEC_v2.jpg}
+            \includegraphics[scale=.2]{DEC_v2.jpg}
             \captionof{figure}{DEC V2 mechanism.}
             \label{fig:DEC_mechanism_v2}
         \end{minipage}
-
-        \subsection{RA and DEC stepper motors}
-        During a little internet journey, we have found a new stepper motor with a nema 17 standard;
-        we have bought two kinds: one of the more robust stepper motors on store and one less robust.
-        Their characteristics are in table \ref{tab:nema_17_specifics} and \ref{tab:nema_17_specifics_2}(see \url{https://www.omc-stepperonline.com/it}).
-
-        \begin{minipage}{0.5\textwidth}
-            \centering
-            \begin{tabular}{cc}
-                \textbf{17HM15-0904S stepper motor}&\\
-                Electronics&\\
-                \hline
-                Manufacturer code & 17HM15-0904S\\
-                Engine type & bipolar\\
-                Pitch angle (deg) & 0.9 \\
-                Torque (Ncm)& 36\\
-                Rated current/phase (A) & 0.9\\
-                Phase resistance (Ohm)& 60\\
-                Voltage (V)& 5.4\\
-                Inductance (mH)& 12 \(\pm\) 20\% (1 kHz)\\
-                 & \\
-                Physical specifications&\\
-                \hline
-                Frame dimensions (mm\(^2\))& 42x42 \\
-                Body length (mm)& 40 \\
-                Shaft diameter (mm)& 5 \\
-                Stem length (mm)& 22 \\
-                D-cut length (mm)& 15 \\
-                Number of cables & 4\\
-                Lead number (mm)& 300 \\
-                Weight (g) & 280\\
-                \hline
-            \end{tabular}
-            \captionof{table}{Nema 17 stepper motor for the DEC motion specifics.}
-            \label{tab:nema_17_specifics}
-        \end{minipage}
-
-        \begin{minipage}{0.5\textwidth}
-            \centering
-            \begin{tabular}{cc}
-                \textbf{17HM19-2004S1 stepper motor}&\\
-                Electronics&\\
-                \hline
-                Manufacturer code & 17HM19-2004S1\\
-                Engine type & bipolar\\
-                Pitch angle (deg) & 0.9 \\
-                Torque (Ncm)& 46\\
-                Rated current (A) & 2\\
-                Phase resistance (Ohm)& 1.4\\
-                Voltage (V)& 2.8\\
-                Inductance (mH)& 4\\
-                 & \\
-                Physical specifications&\\
-                \hline
-                Frame dimensions (mm\(^2\))& 42x42 \\
-                Body length (mm)& 48 \\
-                Shaft diameter (mm)& 5 \\
-                Stem length (mm)& 24 \\
-                D-cut length (mm)& 24 \\
-                Number of cables & 4\\
-                Lead number (mm)& 500 \\
-                Weight (g) & 370\\
-                \hline
-            \end{tabular}
-            \captionof{table}{Nema 17 stepper motor for the RA motion specifics.}
-            \label{tab:nema_17_specifics_2}
-        \end{minipage}
+    
+        \subsection{Focuser motorization}
 
         \section{The software: OnStep}
         On the internet, we have found a great, open-source, free and customizable software called OnStep.\footnote{Wiki groups:\url{https://onstep.groups.io/g/main/wiki/3860}.\\Github:\url{https://github.com/hjd1964/OnStep}.}
