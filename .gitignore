@@ -1,6 +1,7 @@
 
 .vscode
 test
+images
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
