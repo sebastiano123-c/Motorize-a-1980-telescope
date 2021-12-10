@@ -61,8 +61,6 @@
         We, me and my father, illustrate all the transformation steps from an old, dusty and unused telescope into an optimal tool for astrophotography.
     \end{abstract}
 
-    \tableofcontents
-
     % \begin{minipage}
     %     {0.6\textwidth}
     %     \tableofcontents 
@@ -74,6 +72,16 @@
     % \end{minipage}
 
     \begin{multicols}{2}
+
+        \tableofcontents
+
+        \begin{minipage}{0.5\textwidth}
+            \centering
+            \includegraphics[scale=0.4]{urania_upper.jpg}
+            \captionof{figure}{Urania telescope and mount.}
+            \label{fig:urania_telescope_mount}
+        \end{minipage}
+
         \section{Telescope Description}
         The starting point of the project is of course the telescope.
         In our garage, for many years, a 1980 Urania telescope has eaten a lot of dust.
@@ -109,19 +117,11 @@
             \end{tabular}
             \captionof{table}{Urania C.R.T. NX 155 specifics.}
         \end{minipage}
-        \\
-        \begin{minipage}{0.5\textwidth}
-            \centering
-            \includegraphics[scale=0.4]{urania_upper.jpg}
-            \captionof{figure}{Urania telescope and mount.}
-            \label{fig:urania_telescope_mount}
-        \end{minipage}
 
         \subsection{Telescope's mount}
         The telescope is place onto an aeronautic Aluminum tripod equatorial mount.
         \\
-        \begin{minipage}{.5\textwidth}
-            \centering
+        \begin{minipage}{.4\textwidth}
             \begin{tabular}{cc}
                 Specific & value \\
                 \hline
@@ -217,6 +217,19 @@
             \label{fig:DEC_piastra_dimensioni}
         \end{minipage}
 
+        Lastly, to enhance the fluidity of motion and reduce the backlash, the rotation mechanism is enriched with a system of two bearing for each fork arm, one interior and one fixed in the mount externally, see figure \ref{fig:cuscinetto-DEC}.
+        \\
+        \begin{minipage}
+            {.5\textwidth}
+            \centering
+            \includegraphics[scale=.45]{cuscinetto-dec.jpg}
+            \captionof{figure}{External bearing mounted on one fork arm.}
+            \label{fig:cuscinetto-DEC}
+        \end{minipage}
+
+
+         
+
         \section{Motorization: microcontrollers}
         \subsection{The Arduino experience}
         We decide to write this section more as an advertisement to not follow this way than for other purposes.
@@ -245,7 +258,7 @@
         \subsection{Stepper motors}
         In this subsection we write the specifics of the stepper motors used for the RA and DEC mechanization (for both we have used nema 17 motors) and the focuser (developed with a nema 11 stepper motor).
 
-        \subsubsection{RA stepper motor}
+        % \subsubsection{RA stepper motor}
         \begin{minipage}{0.5\textwidth}
             \centering
             \begin{tabular}{cc}
@@ -273,11 +286,11 @@
                 Weight (g) & 280\\
                 \hline
             \end{tabular}
-            \captionof{table}{Nema 17 stepper motor for the RA motion specifics.}
+            \captionof{table}{Nema 17 (0.9A) stepper motor specifics.}
             \label{tab:nema_17_specifics}
         \end{minipage}
 
-        \subsubsection{DEC stepper motor}
+        % \subsubsection{DEC stepper motor}
         
         \begin{minipage}{0.5\textwidth}
             \centering
@@ -306,11 +319,11 @@
                 Weight (g) & 370\\
                 \hline
             \end{tabular}
-            \captionof{table}{Nema 17 stepper motor for the DEC motion specifics.}
+            \captionof{table}{Nema 17 (2A) stepper motor specifics.}
             \label{tab:nema_17_specifics_2}
         \end{minipage}
 
-        \subsubsection{Focuser stepper motor}
+        % \subsubsection{Focuser stepper motor}
         \begin{minipage}{0.5\textwidth}
             \centering
             \begin{tabular}{cc}
@@ -351,15 +364,14 @@
         We decided to follow the "Wemos R32 and CNC V3" project.
         
         \begin{minipage}
-            {.5\textwidth}
-            \centering
+            {.4\textwidth}
             \includegraphics[scale=0.28]{esp32_d1_r32.jpg}
             \captionof{figure}{ESP32 D1 R32 picture.}
             \label{fig:esp32}
         \end{minipage}
 
         \subsection{CNC Shield V3}
-        To better optimize space and wires connections, we have bought a CNC Shield V3 (\(aka\) CNC3), see figure \ref{fig:cnc3}.
+        To better optimize space and wires connections, we have bought a CNC Shield V3 (aka CNC3), see figure \ref{fig:cnc3}.
         \begin{minipage}
             {0.5\textwidth}
             \centering
@@ -371,27 +383,71 @@
         It has 4 slots, each one can host a motor driver.
 
         \subsection{Motor drivers}
-        On the CNC3 shield, we have put two DRV8828 drivers and adjusted the currents using a screwdriver and a multimeter to the values in table \ref{tab:drivers_curr}
+        A stepper motors works only with a driver chip that controls the motor movements.
+        Three types of drivers have been used during the configuration of the setup.
+        \begin{enumerate}
+            \item DRV8828;
+            \item TMC2209;
+            \item TMC2208.
+        \end{enumerate}
+        
+        In each driver the right amount of current is set, otherwise the stepper motor could work improperly.
+        This current depends on the stepper motor current per phase parameter.
+        Typically, drivers have a tunable screw for the tension \(V_{ref}\).
+        For each type of driver, the formula to calculate the tension \(V_{ref}\) depending on the current/phase are different.\footnote{See \url{https://all3dp.com/2/vref-calculator-tmc2209-tmc2208-a4988/} for more details.}
+
+        The procedure is the following:
+        \begin{itemize}
+            \item rotate the screw in the counter clock direction;
+            \item using a multimeter, check that the tension is zero;
+            \item slightly rotate the screw until the tension is the desired one.
+        \end{itemize}
+        We recommend reducing the theoretical value by a 10\%-30\% to prevent motor dangers.
+
+        \subsubsection{DRV8825}
+        For these drivers the tension to be set is roughly the half of the value of the nominal current/phase of the motor.
+        For example, if the motor has a current/phase \(1\)A, the tension would be \(0.5\)V.
 
         \begin{minipage}
-            {.5\textwidth}
-            \centering
+            {.4\textwidth}
             \begin{tabular}{cc}
-                Motor & Current (A) \\
+                Current phaser (A) & Current (A) \\
                 \hline
-                RA motor & 0.45 \\
-                DEC motor & 0.9 \\                
+                0.90 & 0.45 \\
+                2.00 & 0.90             
             \end{tabular}
-            \captionof{table}{DRV8828 drivers setup current.}
+            \captionof{table}{DRV8828 drivers setup current. Note that we have set a value smaller than the one calculated to prevent motor to break.}
             \label{tab:drivers_curr}
-        \end{minipage}
+        \end{minipage} 
+
+        \subsubsection{TMC2208 and TMC2209}
+        For these drivers the tension value is roughly the same of the current/phase value, \textit{e.g.} if \(I=1\)A the tension would be \(V_{ref}=1\)V.
+        Be aware that the TMC2208 has a maximum current output of 1.2A.
+
+        The calculation is 
+        \[\frac{I}{\sqrt{2}}=\frac{325mV}{110m\Omega+20m\Omega}\cdot\frac{1}{\sqrt{2}}\cdot\frac{V_{ref}}{2.5V}\Rightarrow V_{ref} = I \cdot 1\Omega.\]
+        Remember to reduce to value by a 10\%-30\%.
+
+        \begin{minipage}
+            {.4\textwidth}
+            \begin{tabular}{ccc}
+               Driver & Current/phase (A) & Current (A) \\
+                \hline
+               TMC2208 & 0.90 & 0.81 \\
+               TMC2208 &  2.00 & 1.63 \\                
+               TMC2209 (focuser) &  0.67 & 0.50                
+            \end{tabular}
+            \captionof{table}{DRV8828 drivers setup current. Note that we have set a value smaller than the one calculated to prevent motor to break.}
+            \label{tab:drivers_curr}
+        \end{minipage} 
+
+
 
         \subsection{Power supply}
         The power supply is provided by a 19V 5A power supply as in table \ref{tab:power_supply}.
 
         \begin{minipage}
-            {.5\textwidth}
-            \centering
+            {.4\textwidth}
             \begin{tabular}{cc}
                  voltage output (V) & current output (A) \\
                  \hline
@@ -433,8 +489,7 @@
 
         We have reduced the ratio by a third adding two other gears (see figure \ref{fig:RA_mechanization}): 60 teeth gear positioned in the shaft and a 20 teeth gear on the motor shaft.
         \\
-        \begin{minipage}{.5\textwidth}
-            \centering
+        \begin{minipage}{.4\textwidth}
             \begin{tabular}{cc|c}
                 ratio gear 1 & ratio gear 2 & total ratio \\
                 \hline
@@ -445,7 +500,7 @@
             \label{tab:RA_mechanization}
         \end{minipage}
         \\
-        \begin{minipage}{.5\textwidth}
+        \begin{minipage}{.4\textwidth}
             \centering
             \includegraphics[scale=0.6]{RA_motorization.jpg}  
             \captionof{figure}{Nema 17 stepper motor and gear adjustment.}
@@ -496,7 +551,7 @@
         Also, the stage reduction is too low for a good movement precision.
 
         \subsubsection{DEC V2}
-        The second version is made uses again the built-in graded disk mounted on the telescope.
+        The second version made uses again the built-in graded disk mounted on the telescope.
         Also on this construction is glued a 32cm long chain strip.
         Then, a 1/9 reduction is positioned between the first stage and the stepper motor.
         The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v2}.
@@ -525,10 +580,39 @@
             \label{fig:DEC_mechanism_v2}
         \end{minipage}
     
+        \subsection{DEC V3}
+        The third version uses a 3D printed double-belt gear mounted on the telescope.
+        Then, a 1/10 ratio is obtained using a worm gear and another 1/3 is obtained between the worm and the final gear.
+        The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v3}.
+        Figure \ref{fig:DEC_mechanism_v3} is a picture of the mechanism.
+
+        \begin{minipage}
+            {0.5\textwidth}
+            \centering
+            \textbf{DEC-V2 stages}\\
+            \begin{tabular}{cccccc}
+                \hline
+                Gear number & 1 & 2 & 3 & 4 & worm\\
+                number of teeth & 180 & 30 & 60 & 20 & 10\\
+                \hline
+                total ratio & \(\sim \frac{1}{180}\) &&&
+            \end{tabular}
+            \captionof{table}{DEC mechanism's gear specifics.}
+            \label{tab:DEC_gear_spec_v2}
+        \end{minipage}
+        \\
+        \begin{minipage}
+            {0.5\textwidth}
+            \centering
+            \includegraphics[scale=.6]{DEC-v3.jpg}
+            \captionof{figure}{DEC V3 mechanism.}
+            \label{fig:DEC_mechanism_v3}
+        \end{minipage}
+
         \subsection{Focuser motorization}
         Another improvement is the motorization of the focuser.
         Using a nema 11 stepper motor, we have created the motor supports and the gears using a 3D printer.
-        The reduction stage is 3.
+        The reduction stage is 3, see figure \ref{fig:focuser-box}.
 
 
         \section{Cable management}
@@ -555,13 +639,13 @@
         In the most remote drawers of the garage, we have found an old and burned electronic card with four Ethernet sockets, a power supply entry and an on/off switch.
         Using a multimeter we have checked the pins of each slot and created the connections to the CNC3 shield.
 
-        In figures \ref{fig:box}, \ref{fig:RA-box} and \ref{fig:fouser-box} are shown some examples of Ethernet wiring.
+        In figures \ref{fig:box}, \ref{fig:RA-box} and \ref{fig:focuser-box} are shown some examples of Ethernet wiring.
 
         \subsection{Plastic boxes}
         Using a 3D printer, we have created the focuser motor box with the Ethernet exit, and so we did for the RA motor.
         The microcontroller, the CNC3 shield, the power supply and all the electronics have been thrown in a box.
         The stepper motors drivers after a while become very hot, then we have decided to put a fan in the box.
-        In figures \ref{fig:box}, \ref{fig:RA-box} and \ref{fig:fouser-box} are shown the resulting plastic boxes.
+        In figures \ref{fig:box}, \ref{fig:RA-box} and \ref{fig:focuser-box} are shown the resulting plastic boxes.
 
         \begin{minipage}
             {0.5\textwidth}
@@ -587,6 +671,22 @@
             \label{fig:focuser-box}
         \end{minipage}
 
+        \section{Tracking}
+        Sidereal tracking is done by the OnStep software, of course.
+        Otherwise, since the polar alignment may not be perfect we have decided to equip the telescope with an auto-guiding system controlled by the PHD2 app.
+        This, in our mind, should optimize the tracking and permits long-exposure photography which is necessary for optimal results.
+
+        Although separated by the previously mechanization, this auto-guiding system interacts with the mount using ASCOM OnStep telescope drivers, and provide corrections to the tracking.
+        
+        \subsection{Telescope guidescope}
+        On the telescope is fixed a 240mm focal length guidescope Svbony SV106.
+
+        \subsection{Guidescope camera}
+        The camera is an old red webcam inserted into the guidescope using an adpter.\footnote{See this useful tutorial \url{https://telescopeguides.com/how-to-use-a-webcam-with-a-telescope/}.}
+
+        The result is pretty weird, but it works!
+        Just look at the following sections PHD2 logs!
+
         \section{The software}
         Now comes the software part.
         In our mind, we wouldn't want to spend much time on programming.
@@ -596,47 +696,163 @@
         \subsection{OnStep}
         On the internet, we have found a great, open-source, free and customizable software called OnStep.\footnote{Wiki groups:\url{https://onstep.groups.io/g/main/wiki/3860}.\\Github:\url{https://github.com/hjd1964/OnStep}.}
         We have followed the instructions for the WeMos D1 \(+\) CNC V3 project, configured the Config.h file and upload the sketch on the ESP32 board.
-        \begin{minipage}
-            {0.5\textwidth}
-            \centering
-            \begin{tabular}{cc}
-                Variable & value \\
-                \hline
-                \texttt{PINMAP} & CNC3\\
-                \texttt{SERIAL\_A\_BAUD\_DEFAULT} & 115200 \\
-                \texttt{SERIAL\_B\_BAUD\_DEFAULT} & 115200 \\
-                \texttt{SERIAL\_C\_BAUD\_DEFAULT} &  ON \\
-                \texttt{MOUNT\_TYPE} & FORK \\
-                \texttt{BUZZER} & ON\\
-                \texttt{BUZZER\_STATE\_DEFAULT} & ON\\
-                \texttt{SLEW\_RATE\_BASE\_DESIRED} & 1.0\\
-                \texttt{TIME\_LOCATION\_SOURCE} & DS3231 \\
-                \texttt{PPS\_SENSE} & ON \\
-                \texttt{AXIS1\_STEPS\_PER\_DEGREE} & 38293.333 \\
-                \texttt{AXIS1\_STEPS\_PER\_WORMROT} & 38400\\ 
-                \texttt{AXIS1\_DRIVER\_MODEL} & DRV8825\\
-                \texttt{AXIS1\_DRIVER\_MICROSTEPS} & 32 \\
-                \texttt{AXIS1\_HOME\_DEFAULT} & 0\\
-                \texttt{AXIS2\_STEPS\_PER\_DEGREE} & 1002.66667 \\
-                \texttt{AXIS2\_DRIVER\_MODEL} & DRV8825 \\
-                \texttt{AXIS2\_DRIVER\_MICROSTEPS} & 32 \\
-                \texttt{AXIS2\_LIMIT\_MIN} & -35 \\
-                \texttt{AXIS2\_LIMIT\_MAX} & 80 \\
-                \texttt{AXIS2\_HOME\_DEFAULT} & 0\\
-                \texttt{TRACK\_AUTOSTART} & OFF \\
-                \texttt{BUZZER} & ON \\
-                \texttt{BUZZER\_STATE\_DEFAULT} & ON\\
-            \end{tabular}
-            \captionof{table}{Config.h variables we have changed.}
-            \label{fig:config_h}
-        \end{minipage}
+        % \begin{minipage}
+        %     {0.5\textwidth}
+        %     \centering
+        %     \begin{tabular}{cc}
+        %         Variable & value \\
+        %         \hline
+        %         \texttt{PINMAP} & CNC3\\
+        %         \texttt{SERIAL\_A\_BAUD\_DEFAULT} & 115200 \\
+        %         \texttt{SERIAL\_B\_BAUD\_DEFAULT} & 115200 \\
+        %         \texttt{SERIAL\_C\_BAUD\_DEFAULT} &  ON \\
+        %         \texttt{MOUNT\_TYPE} & FORK \\
+        %         \texttt{BUZZER} & ON\\
+        %         \texttt{BUZZER\_STATE\_DEFAULT} & ON\\
+        %         \texttt{SLEW\_RATE\_BASE\_DESIRED} & 1.0\\
+        %         \texttt{TIME\_LOCATION\_SOURCE} & DS3231 \\
+        %         \texttt{PPS\_SENSE} & ON \\
+        %         \texttt{AXIS1\_STEPS\_PER\_DEGREE} & 38293.333 \\
+        %         \texttt{AXIS1\_STEPS\_PER\_WORMROT} & 38400\\ 
+        %         \texttt{AXIS1\_DRIVER\_MODEL} & DRV8825\\
+        %         \texttt{AXIS1\_DRIVER\_MICROSTEPS} & 32 \\
+        %         \texttt{AXIS1\_HOME\_DEFAULT} & 0\\
+        %         \texttt{AXIS2\_STEPS\_PER\_DEGREE} & 1002.66667 \\
+        %         \texttt{AXIS2\_DRIVER\_MODEL} & DRV8825 \\
+        %         \texttt{AXIS2\_DRIVER\_MICROSTEPS} & 32 \\
+        %         \texttt{AXIS2\_LIMIT\_MIN} & -35 \\
+        %         \texttt{AXIS2\_LIMIT\_MAX} & 80 \\
+        %         \texttt{AXIS2\_HOME\_DEFAULT} & 0\\
+        %         \texttt{TRACK\_AUTOSTART} & OFF \\
+        %         \texttt{BUZZER} & ON \\
+        %         \texttt{BUZZER\_STATE\_DEFAULT} & ON\\
+        %     \end{tabular}
+        %     \captionof{table}{Config.h variables we have changed.}
+        %     \label{fig:config_h}
+        % \end{minipage}
 
-        Finally, the box is placed on the mount and connected with the Ethernet cables to the motors;
-        the telescope is now free to start few tests to check the goodness of our work!
+        Finally, the box is placed on the mount and connected with the Ethernet cables to the motors
+
+        \subsection{PHD2}
+        \textit{Push It Dummy-2} is the software that controller the auto-guiding system.
+        PHD2 is telescope guiding software that simplifies the process of tracking a guide star, letting you concentrate on other aspects of deep-sky imaging.
+        There are plenty tutorials on the internet showing how to use PHD2, so we do not enter so much into details.\footnote{\url{https://www.youtube.com/watch?v=Kd4qzW7uV38} or the pdf \url{https://openphdguiding.org/man-dev/Basic_use.htm}.}
+        But we only want to stress out that, after few important configuration passes, the auto-guiding is really simple and promises very good results!
+
+        \subsubsection{Wizard configuration}
+        Connection is really simple using the "wizard" option suggested in every tutorials.
+        The "unbinned pixel size" is one of the first parameters you have to fix in the wizard which are not quite clear.
+        You should be able to get the unbinned pixel size from the camera spec sheet or the manufacturer's web site.
+        If this is not the case, you can get the unbinned pixel size by taking the dimension of the sensor and diving it by the number of pixels.
+
+        The "bin level" is the technique to combine proximal bins to form a "superpixel".\footnote{\url{https://www.photometrics.com/learn/imaging-topics/binning-2.}}
+        This has the effect of reducing the noise but at the price of reducing the image definition.
+
+        Another remarkable option to fill is the telescope mount's driver, which in this case are the ASCOM OnStep telescope drivers.
+
+        \begin{figure*}[t]
+            \centering
+            \includegraphics[scale=0.45]{analysis/PHD2/2021-12-09/guide-11-arcsec.png}
+            \caption{DEC V3 test: PHD2 log view using arcseconds as units.}
+            \label{fig:guide-11-arcsec}
+        \end{figure*}
+        \begin{figure*}[t]
+            \centering
+            \includegraphics[scale=0.45]{analysis/PHD2/2021-12-09/guide-11-pixel.png}
+            \caption{DEC V3 test: PHD2 log view using pixel as units.}
+            \label{fig:guide-11-pixel}
+        \end{figure*}
+        
+        \subsubsection{Dark libraries}
+        Before starting the first guiding session, it is useful to spend 5 minutes to create a dark library.
+        To do so, just press the "Dark" tool on the top and create a new dark library.
+        Cover the guidescope, and start the acquisition.
+
+        After the acquisition, remove the cover;
+        this should make clearer acquisitions.
+
+        \subsubsection{Connect all!}
+        After the configuration, press the first icon in the bottom left and press "connect all".
+        Now the camera and the mount are connected to PHD2.
+
+        \subsubsection{Calibration}
+        Search a bright star whose declination is between 10 to -10 degrees.
+        Start the acquisition pressing the "cycle" icon (the second from the left), then press the "star with a magnifying glass" that selects the most bright star.
+        Finally, push the PHD2 icon; this will start the calibration and requires few minutes.
+
+        \subsubsection{Guiding}
+        If dark libraries and calibration are done, the guiding can start.
+        If it is not present, search in the settings the plot visualization that let you know the adjustments that PHD2 is doing.
+        In our case, it is a useful tool to see if our work were precisely enough.        
+       
+        A useful tool is the "use multiple stars" in the guiding settings.
+        The latter permits holding multiple star, and we think this is another improvement to stability in auto-guiding.
+
+
+        \subsection{Stellarium}
+        Stellarium is the software we use to search objects.
+        The impressive feature is that, after paring it via ASCOM drivers with the mount, it is possible to tell the telescope to move at the star pointed out in Stellarium.\footnote{See \url{https://www.youtube.com/watch?v=DUdYv311HFw}.}
+
+        The telescope is now free to start few tests to check the goodness of our work!
 
         \section{Tests}
+        \label{sec:tests}
+        The test are aimed to estimate the precision of the mount.
+        Of particular interest are the test using PHD2 which measure the precision in micro-adjustments for the auto-guiding system.
+
+        The application used to study the PHD2 plots is the PHD2LogViewer app.
+        The latter can upload all the guiding session you make, since every session is stored in the PHD2 folder.
+        The app also make raw statistical analysis which are good parameters to think about.
+        The root-mean-square (RMS) describe the spread of the data points around some average peak value (like standard deviation).
+        The value of RMS should be 1 arcsecond or lower for a good guiding.
+
+        \subsection{DEC V3 test}
+        The DEC V3 has been developed to reduce the mechanism backlash using the idea "the less the number of belts gets, the better the guiding is".
+        The resolution power of the mount is reported in table \ref{tab:resolution-power-DEC-V3}.
+        The extrapolated statistics is reported in table \ref{tab:DEC-V3-statistics}.
+        \\
+        \begin{minipage}
+            {.5\textwidth}
+            \begin{tabular}{ccc}
+                Mechanism & microsteps (x360$^{\circ}$) & resolution (") \\
+                \hline
+                RA  & 19200 & 0.21\\ 
+                DEC & 12800 & 0.65
+            \end{tabular}
+            \captionof{table}{Resolution power using the DEC V3 mechanism. Microsteps is intended as the total number of microsteps around the entire circumference.}
+            \label{tab:resolution-power-DEC-V3}
+        \end{minipage}
+        \\
+        After the calibration, we have pointed the Rosetta nebula and start tracking.
+        The result can be seen in figure \ref{fig:guide-11-arcsec} and \ref{fig:guide-11-pixel}.
+        \\
+        \begin{minipage}{.4\textwidth}
+            \centering
+            \begin{tabular}{ccc}
+                \textbf{Statistics}&RMS&Peak\\
+                \hline
+                RA& 0.47" (0.15 px)& 1.87" ( 0.58 px)\\
+                DEC& 0.90" (0.28 px)&-8.12" (-2.52 px)\\
+                Total& 1.02" (0.32 px)&\\
+                \\
+                \textbf{Drift}& ("/min) & (px/min)\\
+                \hline
+                RA& +3.01"/min& +0.94 px/min\\
+                Dec& +2.14"/min& +0.66 px/min\\
+                Polar Alignment Error& 8.7'&\\
+                \hline
+            \end{tabular}
+            \captionof{table}{DEC V3 test: statistics of the guiding.}
+            \label{tab:DEC-V3-statistics}
+        \end{minipage}
+
 
         \section{Conclusion}
+        As seen in the test section \ref{sec:tests}, the result are encouraging.
+        The auto-guide seem to be stable and quite good since, \textit{e.g.} the RMS is lower than 1 for RA and DEC.
+        Photography with this configuration have been set up with more than 2 minutes per pose (which was impossible for us before the devolving of this project).
+
+        As a final consideration, before buying an expensive telescope and mount, consider the idea of converting your own old telescope and the lets play with it! 
 
     \end{multicols}
 \end{document}
