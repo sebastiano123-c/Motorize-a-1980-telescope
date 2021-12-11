@@ -46,7 +46,7 @@
 % images folder
 \graphicspath{ {./images/} }
 
-\title{\includegraphics[width=4cm]{telescope_image.jpg} \\ Motorize 1980 dad's telescope}
+\title{Motorize 1980 dad's telescope}
 
 \author{Sebastiano Cocchi \& Stefano Cocchi}
 
@@ -77,7 +77,7 @@
 
         \begin{minipage}{0.5\textwidth}
             \centering
-            \includegraphics[scale=0.4]{DSC_5264_00001.jpg}
+            \includegraphics[scale=0.2]{DSC_5264_00001.jpg}
             \captionof{figure}{Final result: our brand-new telescope.}
         \end{minipage}
 
@@ -370,14 +370,8 @@
         We decided to follow the "Wemos R32 and CNC V3" project.
         
         \begin{minipage}
-<<<<<<< HEAD
-            {.5\textwidth}
-            \centering
-            \includegraphics[scale=0.25]{esp32_d1_r32.jpg}
-=======
             {.4\textwidth}
             \includegraphics[scale=0.28]{esp32_d1_r32.jpg}
->>>>>>> 9ab27019d8e1b705a633b8a8f9078a39849eb76c
             \captionof{figure}{ESP32 D1 R32 picture.}
             \label{fig:esp32}
         \end{minipage}
@@ -554,7 +548,7 @@
         \begin{minipage}
             {0.5\textwidth}
             \centering
-            \includegraphics[scale=.27]{DEC_motorization.jpg}
+            \includegraphics[scale=.28]{DEC_motorization.jpg}
             \captionof{figure}{DEC mechanism.}
             \label{fig:DEC_mechanism}
         \end{minipage}
@@ -563,19 +557,12 @@
         Also, the stage reduction is too low for a good movement precision.
 
         \subsubsection{DEC V2}
-<<<<<<< HEAD
-        The second version is made uses again the built-in graded disk mounted on the telescope.
-        Also on this, is attached a 32cm long chain strip.
-        
-        
-=======
         The second version made uses again the built-in graded disk mounted on the telescope.
         Also on this construction is glued a 32cm long chain strip.
         Then, a 1/9 reduction is positioned between the first stage and the stepper motor.
         The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v2}.
         Figure \ref{fig:DEC_mechanism_v2} is a picture of the mechanism.
 
->>>>>>> 9ab27019d8e1b705a633b8a8f9078a39849eb76c
         \begin{minipage}
             {0.5\textwidth}
             \centering
@@ -594,15 +581,6 @@
         \begin{minipage}
             {0.5\textwidth}
             \centering
-<<<<<<< HEAD
-            \includegraphics[scale=.19]{DEC_v2.jpg}
-            \captionof{figure}{DEC V2 mechanism.}
-            \label{fig:DEC_mechanism_v2}
-        \end{minipage}
-        Then, a 1/9 reduction is positioned between the first stage and the stepper motor.
-        The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v2}.
-        Figure \ref{fig:DEC_mechanism_v2} is a picture of the mechanism.
-=======
             \includegraphics[scale=.2]{DEC_v2.jpg}
             \captionof{figure}{DEC V2 mechanism.}
             \label{fig:DEC_mechanism_v2}
@@ -613,7 +591,6 @@
         Then, a 1/10 ratio is obtained using a worm gear and another 1/3 is obtained between the worm and the final gear.
         The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v3}.
         Figure \ref{fig:DEC_mechanism_v3} is a picture of the mechanism.
->>>>>>> 9ab27019d8e1b705a633b8a8f9078a39849eb76c
 
         \begin{minipage}
             {0.5\textwidth}
@@ -654,42 +631,9 @@
         \begin{minipage}
             {0.5\textwidth}
             \centering
-<<<<<<< HEAD
-            \begin{tabular}{cc}
-                Variable & Value \\
-                \hline
-                \texttt{PINMAP} & CNC3\\
-                \texttt{SERIAL\_A\_BAUD\_DEFAULT} & 115200 \\
-                \texttt{SERIAL\_B\_BAUD\_DEFAULT} & 115200 \\
-                \texttt{SERIAL\_C\_BAUD\_DEFAULT} &  ON \\
-                \texttt{MOUNT\_TYPE} & FORK \\
-                \texttt{BUZZER} & ON\\
-                \texttt{BUZZER\_STATE\_DEFAULT} & ON\\
-                \texttt{SLEW\_RATE\_BASE\_DESIRED} & 1.0\\
-                \texttt{TIME\_LOCATION\_SOURCE} & DS3231 \\
-                \texttt{PPS\_SENSE} & ON \\
-                \texttt{AXIS1\_STEPS\_PER\_DEGREE} & 38293.333 \\
-                \texttt{AXIS1\_STEPS\_PER\_WORMROT} & 38400\\ 
-                \texttt{AXIS1\_DRIVER\_MODEL} & DRV8825\\
-                \texttt{AXIS1\_DRIVER\_MICROSTEPS} & 32 \\
-                \texttt{AXIS1\_HOME\_DEFAULT} & 0\\
-                \texttt{AXIS2\_STEPS\_PER\_DEGREE} & 1002.66667 \\
-                \texttt{AXIS2\_DRIVER\_MODEL} & DRV8825 \\
-                \texttt{AXIS2\_DRIVER\_MICROSTEPS} & 32 \\
-                \texttt{AXIS2\_LIMIT\_MIN} & -35 \\
-                \texttt{AXIS2\_LIMIT\_MAX} & 80 \\
-                \texttt{AXIS2\_HOME\_DEFAULT} & 0\\
-                \texttt{TRACK\_AUTOSTART} & OFF \\
-                \texttt{BUZZER} & ON \\
-                \texttt{BUZZER\_STATE\_DEFAULT} & ON\\
-            \end{tabular}
-            \captionof{table}{Config.h variables we have changed.}
-            \label{fig:config_h}
-=======
             \includegraphics[scale=0.5]{stepper-motors-cables.png}
             \captionof{figure}{Stepper motor cables scheme.}
             \label{fig:stepper-motors-cables}
->>>>>>> 9ab27019d8e1b705a633b8a8f9078a39849eb76c
         \end{minipage}
 
         \subsection{Ethernet cables}
