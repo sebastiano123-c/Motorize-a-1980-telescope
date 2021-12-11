@@ -46,7 +46,7 @@
 % images folder
 \graphicspath{ {./images/} }
 
-\title{Motorize 1980 dad's telescope}
+\title{\includegraphics[width=4cm]{telescope_image.jpg} \\ Motorize 1980 dad's telescope}
 
 \author{Sebastiano Cocchi \& Stefano Cocchi}
 
@@ -248,7 +248,7 @@
         \begin{minipage}
             {.5\textwidth}
             \centering
-            \includegraphics[scale=0.28]{esp32_d1_r32.jpg}
+            \includegraphics[scale=0.25]{esp32_d1_r32.jpg}
             \captionof{figure}{ESP32 D1 R32 picture.}
             \label{fig:esp32}
         \end{minipage}
@@ -368,7 +368,7 @@
         \begin{minipage}
             {0.5\textwidth}
             \centering
-            \includegraphics[scale=.28]{DEC_motorization.jpg}
+            \includegraphics[scale=.27]{DEC_motorization.jpg}
             \captionof{figure}{DEC mechanism.}
             \label{fig:DEC_mechanism}
         \end{minipage}
@@ -376,10 +376,8 @@
         \subsubsection{DEC V2}
         The second version is made uses again the built-in graded disk mounted on the telescope.
         Also on this, is attached a 32cm long chain strip.
-        Then, a 1/9 reduction is positioned between the first stage and the stepper motor.
-        The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v2}.
-        Figure \ref{fig:DEC_mechanism_v2} is a picture of the mechanism.
-
+        
+        
         \begin{minipage}
             {0.5\textwidth}
             \centering
@@ -402,10 +400,13 @@
         \begin{minipage}
             {0.5\textwidth}
             \centering
-            \includegraphics[scale=.25]{DEC_v2.jpg}
+            \includegraphics[scale=.19]{DEC_v2.jpg}
             \captionof{figure}{DEC V2 mechanism.}
             \label{fig:DEC_mechanism_v2}
         \end{minipage}
+        Then, a 1/9 reduction is positioned between the first stage and the stepper motor.
+        The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v2}.
+        Figure \ref{fig:DEC_mechanism_v2} is a picture of the mechanism.
 
         \subsection{RA and DEC stepper motors}
         During a little internet journey, we have found a new stepper motor with a nema 17 standard;
@@ -481,7 +482,7 @@
             {0.5\textwidth}
             \centering
             \begin{tabular}{cc}
-                Variable & value \\
+                Variable & Value \\
                 \hline
                 \texttt{PINMAP} & CNC3\\
                 \texttt{SERIAL\_A\_BAUD\_DEFAULT} & 115200 \\
