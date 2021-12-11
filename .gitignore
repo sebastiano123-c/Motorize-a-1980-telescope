@@ -1,6 +1,8 @@
 
 .vscode
 test
+# images
+analysis
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -16,7 +18,7 @@ test
 *.cb2
 .*.lb
 
-## Intermediate documents:
+## Intermediate documents:BBB
 *.dvi
 *.xdv
 *-converted-to.*
