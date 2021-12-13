@@ -11,6 +11,8 @@ wifiConnecting.ino
 Commons
 Chapters
 documentation.tex
+OTA.h
+OTAWebServer.h
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
