@@ -8,8 +8,8 @@ Esp32-telescope-motorization-test
 simpleMotorTest.ino
 webServerCOnnection.ino
 wifiConnecting.ino
-# Commons
-# Chapters
+Commons
+Chapters
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
