@@ -1,4 +1,4 @@
-# Motorize-1980-dads-telescope
+# Motorize-1980-telescope
 If you, like me, find an old and dusty telescope in our garage, wouldn't you want it to work as the best motorized telescopes?
 Here, you will find the transformation of my Urania equatorial telescope on the way to 2.0.
 
@@ -8,3 +8,4 @@ The software parts are provided by [OnStep](https://github.com/hjd1964/OnStep) a
 
 # Theory
 All the steps are reported in the [documentation](https://github.com/sebastiano123-c/Motorize-1980-dads-telescope/blob/main/documentation.pdf).
+3D printed parts are stored in the hardware folder.

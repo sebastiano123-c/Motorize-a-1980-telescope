@@ -1,8 +1,13 @@
 OnStep
 .vscode
 test
-# images
+images
 \analysis
+Esp32-telescope-motorization
+Esp32-telescope-motorization-test
+simpleMotorTest.ino
+webServerCOnnection.ino
+wifiConnecting.ino
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
