@@ -8,4 +8,4 @@ The software parts are provided by [OnStep](https://github.com/hjd1964/OnStep) a
 
 # Theory
 All the steps are reported in the [documentation](https://github.com/sebastiano123-c/Motorize-1980-dads-telescope/blob/main/documentation.pdf).
-3D printed parts are stored in the hardware folder.
+3D printed parts are stored in the [hardware](https://github.com/sebastiano123-c/Motorize-1980-dads-telescope/tree/main/Hardware) folder.
