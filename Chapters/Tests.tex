@@ -1,0 +1,50 @@
+\section{Tests}
+\label{sec:tests}
+The test are aimed to estimate the precision of the mount.
+Of particular interest are the test using PHD2 which measure the precision in micro-adjustments for the auto-guiding system.
+
+The application used to study the PHD2 plots is the PHD2LogViewer app.
+The latter can upload all the guiding session you make, since every session is stored in the PHD2 folder.
+The app also make raw statistical analysis which are good parameters to think about.
+The root-mean-square (RMS) describe the spread of the data points around some average peak value (like standard deviation).
+The value of RMS should be 1 arcsecond or lower for a good guiding.
+
+\subsection{DEC V3 test}
+The DEC V3 has been developed to reduce the mechanism backlash using the idea \textit{the less the number of belts gets, the better the guiding is}.
+The resolution power of the mount is reported in table \ref{tab:resolution-power-DEC-V3}.
+The extrapolated statistics is reported in table \ref{tab:DEC-V3-statistics}.
+\\
+\begin{minipage}
+    {.5\textwidth}
+    \begin{tabular}{ccc}
+        Mechanism & microsteps (x360$^{\circ}$) & resolution (") \\
+        \hline
+        RA  & 19200 & 0.21\\ 
+        DEC & 12800 & 0.65
+    \end{tabular}
+    \captionof{table}{Resolution power using the DEC V3 mechanism. Microsteps is intended as the total number of microsteps around the entire circumference.}
+    \label{tab:resolution-power-DEC-V3}
+\end{minipage}
+\\
+After the calibration, we have pointed the Rosetta nebula and start tracking.
+The result can be seen in figure \ref{fig:guide-11-arcsec} and \ref{fig:guide-11-pixel}.
+\\
+\begin{minipage}{.4\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+        \textbf{Statistics}&RMS&Peak\\
+        \hline
+        RA& 0.47" (0.15 px)& 1.87" ( 0.58 px)\\
+        DEC& 0.90" (0.28 px)&-8.12" (-2.52 px)\\
+        Total& 1.02" (0.32 px)&\\
+        \\
+        \textbf{Drift}& ("/min) & (px/min)\\
+        \hline
+        RA& +3.01"/min& +0.94 px/min\\
+        Dec& +2.14"/min& +0.66 px/min\\
+        Polar Alignment Error& 8.7'&\\
+        \hline
+    \end{tabular}
+    \captionof{table}{DEC V3 test: statistics of the guiding.}
+    \label{tab:DEC-V3-statistics}
+\end{minipage}
