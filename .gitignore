@@ -1,6 +1,7 @@
 # Generic
 .vscode
 test
+Esp32-OnStep
 Esp32-telescope-motorization
 Esp32-telescope-motorization-test
 simpleMotorTest.ino
