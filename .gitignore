@@ -1,4 +1,4 @@
-OnStep
+# Generic
 .vscode
 test
 Esp32-telescope-motorization
@@ -13,6 +13,15 @@ wifiConnecting.ino
 # analysis
 OTA.h
 OTAWebServer.h
+
+# OnStep file to preserve
+OnStep/*
+!OnStep/src
+OnStep/src/*
+!OnStep/src/pinmaps
+OnStep/src/pinmaps/*
+!OnStep/src/pinmaps/Pins.CNC3.h
+!OnStep/Config.h
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
