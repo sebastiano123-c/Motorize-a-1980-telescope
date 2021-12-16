@@ -10,7 +10,7 @@ webServerCOnnection.ino
 wifiConnecting.ino
 # Commons
 # Chapters
-documentation.tex
+# documentation.tex
 OTA.h
 OTAWebServer.h
 
