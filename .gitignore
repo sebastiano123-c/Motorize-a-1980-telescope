@@ -8,8 +8,8 @@ Esp32-telescope-motorization-test
 simpleMotorTest.ino
 webServerCOnnection.ino
 wifiConnecting.ino
-Commons
-Chapters
+# Commons
+# Chapters
 documentation.tex
 OTA.h
 OTAWebServer.h

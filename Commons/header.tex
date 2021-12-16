@@ -1,0 +1,68 @@
+%packages
+\usepackage{graphicx}
+\usepackage{epigraph}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{luainputenc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[font={small,it}]{caption}
+%\usepackage[a5paper, total={4.5in, 7in}]{geometry} %formato libro piccolo
+\usepackage[a4paper, total={7.5in, 10.35in}]{geometry} %formato libro A4
+\usepackage{hyperref}
+\usepackage{color,soul}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{imakeidx}
+\usepackage{enumerate}
+\usepackage{cancel}
+\usepackage{physics}
+\makeindex[options=-s mystyle.ist]
+\usepackage{simplewick}
+%\usepackage{empheq}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{braket}
+\graphicspath{ {./} }
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{subcaption}
+\usepackage{kpfonts}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{titling}
+%
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage[some]{background}
+% algorithm
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}%
+% multicolumns
+\usepackage{multicol}
+\usepackage{lmodern}
+
+
+%background image
+\backgroundsetup{
+    scale=1,
+    angle=0,
+    opacity=1,
+    contents={\begin{tikzpicture}[remember picture,overlay]
+        \node[inner sep=0pt] at (0,7){\includegraphics[width=\pagewidth, height=0.5\pageheight]{header.jpg}};
+    \end{tikzpicture}}
+}
+
+% bibliography
+\usepackage[
+    backend=biber,
+    style=alphabetic,
+    sorting=ynt
+]{biblatex}
+% \addbibresource{./bibliography.bib}
+
+% images folder
+\graphicspath{ {./images/} }
+
+% date
+\date{\today}
