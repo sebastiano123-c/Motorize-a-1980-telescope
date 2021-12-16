@@ -1,4 +1,4 @@
-# ignore all ("*/" ignore subfolders)
+# ignore all
 *
 
 # except
@@ -10,7 +10,7 @@
 !/Setup
 !/Setup/*
 
-# OnStep file to preserve
+# OnStep file to be preserved
 !/OnStep
 /OnStep/*
 # save Config.h
@@ -30,3 +30,6 @@
 !/Chapters/*
 !/Commons
 !/Commons/*
+
+# remove latex intermediate files
+*.aux
