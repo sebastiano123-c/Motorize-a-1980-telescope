@@ -22,24 +22,7 @@
 !/OnStep/src/pinmaps/Pins.CNC3.h
 
 # Once the repo will be public, comment out this
+!documentation.tex
 !/images
 !/Chapters
 !/Commons
-
-
-# # Generic
-# .vscode
-# test
-# Esp32-OnStep
-# Esp32-telescope-motorization
-# Esp32-telescope-motorization-test
-# simpleMotorTest.ino
-# webServerCOnnection.ino
-# wifiConnecting.ino
-# # Commons
-# # Chapters
-# # documentation.tex
-# # images
-# # analysis
-# OTA.h
-# OTAWebServer.h
