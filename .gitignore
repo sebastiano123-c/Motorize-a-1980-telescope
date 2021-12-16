@@ -1,7 +1,6 @@
 OnStep
 .vscode
 test
-images
 \analysis
 Esp32-telescope-motorization
 Esp32-telescope-motorization-test
@@ -11,6 +10,7 @@ wifiConnecting.ino
 # Commons
 # Chapters
 # documentation.tex
+# images
 OTA.h
 OTAWebServer.h
 
