@@ -10,6 +10,16 @@
 !/Setup
 
 # OnStep file to preserve
+!/OnStep
+/OnStep/*
+# save Config.h
+!/OnStep/Config.h
+# save pinmap
+!/OnStep/src
+/OnStep/src/*
+!/OnStep/src/pinmaps
+/OnStep/src/pinmaps/*
+!/OnStep/src/pinmaps/Pins.CNC3.h
 
 # Once the repo will be public, comment out this
 !/images
