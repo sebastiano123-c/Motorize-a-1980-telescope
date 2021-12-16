@@ -1,13 +1,14 @@
 # ignore all ("*/" ignore subfolders)
 *
-*/
 
 # except
 !.gitignore
 !documentation.pdf
 !README.md
 !/Hardware
+!/Hardware/*
 !/Setup
+!/Setup/*
 
 # OnStep file to preserve
 !/OnStep
@@ -24,5 +25,8 @@
 # Once the repo will be public, comment out this
 !documentation.tex
 !/images
+!/images/*
 !/Chapters
+!/Chapters/*
 !/Commons
+!/Commons/*
