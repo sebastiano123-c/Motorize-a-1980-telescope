@@ -6,9 +6,9 @@
 !documentation.pdf
 !README.md
 !/Hardware
-!/Hardware/*
+!/Hardware/**
 !/Setup
-!/Setup/*
+!/Setup/**
 
 # OnStep file to be preserved
 !/OnStep
@@ -25,7 +25,7 @@
 # Once the repo will be public, comment out this
 !documentation.tex
 !/images
-!/images/*
+!/images/**
 !/Chapters
 !/Chapters/*
 !/Commons
