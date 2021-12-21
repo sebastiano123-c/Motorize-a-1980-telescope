@@ -14,7 +14,7 @@
 #define Aux3                 21     // Home SW for Axis1, or I2C SDA {assuming default SCL/SDA pins are present}
 #define Aux4                 22     // Home SW for Axis2, or I2C SCL
 #define Aux7                 39     // Limit SW, PPS, etc.
-#define Aux8                 23     // OneWire, Status LED, Status2 LED, Reticle LED, etc.
+#define Aux8                 15     // OneWire, Status LED, Status2 LED, Reticle LED, etc. - 23 OK
 
 // Misc. pins
 #ifndef OneWirePin
@@ -44,7 +44,7 @@
 #define Axis1_EN             12     // Enable [must be low at boot 12]
 #define Axis1_M0             19     // Microstep Mode 0 or SPI MOSI - 32 OK
 #define Axis1_M1             18     // Microstep Mode 1 or SPI SCK - 33 OK
-#define Axis1_M2             15     // Microstep Mode 2 or SPI CS
+#define Axis1_M2             23     // Microstep Mode 2 or SPI CS - 15 OK
 #define Axis1_M3           Aux2     // SPI MISO/Fault
 #define Axis1_STEP           26     // Step
 #define Axis1_DIR            16     // Dir
@@ -53,9 +53,9 @@
 
 // Axis2 Dec/Alt step/dir driver
 #define Axis2_EN         SHARED     // Enable pin control shared with Axis1
-#define Axis2_M0             2     // Microstep Mode 0 or SPI MOSI - 32 OK
-#define Axis2_M1             4     // Microstep Mode 1 or SPI SCK - 33 OK
-#define Axis2_M2              0     // Microstep Mode 2 or SPI CS
+#define Axis2_M0             2      // Microstep Mode 0 or SPI MOSI - 32 OK
+#define Axis2_M1             4      // Microstep Mode 1 or SPI SCK - 33 OK
+#define Axis2_M2             0     // Microstep Mode 2 or SPI CS - 0 OK
 #define Axis2_M3           Aux2     // SPI MISO/Fault
 #define Axis2_STEP           25     // Step
 #define Axis2_DIR            27     // Dir
