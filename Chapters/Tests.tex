@@ -1,5 +1,11 @@
 \section{Tests}
 \label{sec:tests}
+% Sidereal tracking is done by the OnStep software, of course.
+% Otherwise, since the polar alignment may not be perfect we have decided to equip the telescope with an auto-guiding system controlled by the PHD2 app.
+% This, in our mind, should optimize the tracking and permits long-exposure photography which is necessary for optimal results.
+
+% Although separated by the previously mechanization, this auto-guiding system interacts with the mount using ASCOM OnStep telescope drivers, and provide corrections to the tracking.
+
 The test are aimed to estimate the precision of the mount.
 Of particular interest are the test using PHD2 which measure the precision in micro-adjustments for the auto-guiding system.
 
@@ -9,20 +15,30 @@ The app also make raw statistical analysis which are good parameters to think ab
 The root-mean-square (RMS) describe the spread of the data points around some average peak value (like standard deviation).
 The value of RMS should be 1 arcsecond or lower for a good guiding.
 
-\subsection{DEC V3 test}
-The DEC V3 has been developed to reduce the mechanism backlash using the idea \textit{the less the number of belts gets, the better the guiding is}.
+Before describing the tests, let us show the tracking system, which is composed of a guidescope and a tracking camera.
+
+\subsection{Telescope guidescope}
+On the telescope is fixed a 240mm focal length guidescope Svbony SV106.
+
+\subsection{Guidescope camera}
+The camera is an old red webcam inserted into the guidescope using an adpter.\footnote{See this useful tutorial \url{https://telescopeguides.com/how-to-use-a-webcam-with-a-telescope/}.}
+The result is pretty weird, but it works!
+Just look at the following sections PHD2 logs!
+
+\subsection{DEC V1 test}
+The DEC V1 has been developed to reduce the mechanism backlash using the idea \textit{the less the number of belts gets, the better the guiding is}.
 The resolution power of the mount is reported in table \ref{tab:resolution-power-DEC-V3}.
 The extrapolated statistics is reported in table \ref{tab:DEC-V3-statistics}.
 \\
 \begin{minipage}
     {.5\textwidth}
     \begin{tabular}{ccc}
-        Mechanism & microsteps (x360$^{\circ}$) & resolution (") \\
+        \textbf{Mechanism} & \textbf{microsteps (x360$^{\circ}$)} &\textbf{resolution ('')}\\
         \hline
         RA  & 19200 & 0.21\\ 
         DEC & 12800 & 0.65
     \end{tabular}
-    \captionof{table}{Resolution power using the DEC V3 mechanism. Microsteps is intended as the total number of microsteps around the entire circumference.}
+    \captionof{table}{Resolution power using the DEC V1 mechanism. Microsteps is intended as the total number of microsteps around the entire circumference.}
     \label{tab:resolution-power-DEC-V3}
 \end{minipage}
 \\
@@ -47,4 +63,44 @@ The result can be seen in figure \ref{fig:guide-11-arcsec} and \ref{fig:guide-11
     \end{tabular}
     \captionof{table}{DEC V3 test: statistics of the guiding.}
     \label{tab:DEC-V3-statistics}
+\end{minipage}
+
+\subsection{DEC V1+ test}
+We have updated the DEC V1 mechanism to DEC V1+ to introduce a more gear reduction and the possibility to decouple the telescope movement from the gear to perfectly balance it.
+The resolution power of the mount is reported in table \ref{tab:resolution-power-DEC-V1p}.
+The extrapolated statistics is reported in table \ref{tab:DEC-V1p-statistics}.
+\\
+\begin{minipage}
+    {.5\textwidth}
+    \begin{tabular}{ccc}
+        \textbf{Mechanism} & \textbf{microsteps (x360$^{\circ}$)} &\textbf{resolution ('')}\\
+        \hline
+        RA  & \hl{add} & \hl{add}\\ 
+        DEC & \hl{add} & \hl{add}
+    \end{tabular}
+    \captionof{table}{Resolution power using the DEC V1+ mechanism. Microsteps is intended as the total number of microsteps around the entire circumference.}
+    \label{tab:resolution-power-DEC-V1p}
+\end{minipage}
+\\
+After the calibration, we have pointed the Rosetta nebula and start tracking.
+The result can be seen in figure \hl{add}.
+\\
+\begin{minipage}{.4\textwidth}
+    \centering
+    \begin{tabular}{ccc}
+        \textbf{Statistics}&RMS&Peak\\
+        \hline
+        RA   & \hl{add}&\hl{add}\\
+        DEC  & \hl{add}&\hl{add}\\
+        Total& \hl{add}&\\
+        \\
+        \textbf{Drift}& ("/min) & (px/min)\\
+        \hline
+        RA& \hl{add}"/min& \hl{add} px/min\\
+        Dec& \hl{add}"/min& \hl{add} px/min\\
+        Polar Alignment Error& \hl{add}'&\\
+        \hline
+    \end{tabular}
+    \captionof{table}{DEC V1+ test: statistics of the guiding.}
+    \label{tab:DEC-V1p-statistics}
 \end{minipage}

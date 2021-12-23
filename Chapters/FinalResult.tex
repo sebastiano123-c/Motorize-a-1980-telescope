@@ -1,15 +1,64 @@
-\section{Final setup and considerations}
-After lots of hours testing our telescope, we can declare what is the best configuration found using the Wemos D1 \+ CNC3 shield card.
-This section is a sort of recap telling you which are the best components to use.
+\section{Conclusion}
+\label{sec:final-result}
+After lots of hours testing our telescope, we can declare what is the best configuration found using the Wemos D1 + CNC3 shield.
+% This section is a sort of recap telling you which are the best components to use.
+\\
+\begin{minipage}
+    {0.5\textwidth}
+    \centering
+    \begin{tabular}{c|c}
+        \textbf{Part} & \textbf{component}\\
+        \hline
+        Microcontroller & \href{https://www.amazon.it/ARCELI-sviluppo-dual-mode-Bluetooth-Arduino/dp/B07MBZMYCX/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1YBD3RAGAIJ42&keywords=esp32+D1+r32&qid=1640171465&sprefix=esp32+d1+r%2Caps%2C103&sr=8-1}{Wemos D1 R32 (ESP32)}\\
+        Pinmap & \href{https://www.amazon.it/AZDelivery-CNC-Shield-V3-Development/dp/B07YWQJCNY/ref=sr_1_5?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&keywords=cnc+3+shield&qid=1640171359&sr=8-5}{CNC3} \\
+        \hline
+        Voltage regulator & \href{https://www.amazon.it/ICQUANZX-regolatore-Step-Down-Convertitore-Tensione/dp/B07VQ89RZG/ref=sr_1_12?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2WWK37UBE7BDV&keywords=voltage+regulator+arduino&qid=1640172089&sprefix=voltage+regulator+arduino%2Caps%2C322&sr=8-12}{ICQUANZX}\\
+        Time & \href{https://www.amazon.it/ARCELI-DS3231-AT24C32-Precision-Arduino/dp/B07CQW5RMQ/ref=sr_1_5?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=3T9IY8YWP2LRU&keywords=RTC+DS3231&qid=1640171315&sprefix=rtc+ds3231%2Caps%2C274&sr=8-5}{RTC DS3231}\\
+        Weather sensor & \href{https://www.amazon.it/ARCELI-GY-BMP280-3-3-pressione-atmosferica-precisione/dp/B09DYFNC8G/ref=sr_1_1_sspa?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=33LDK15LHCWQR&keywords=bmp280&qid=1640171293&sprefix=bmp280%2Caps%2C112&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzOVhGRU1OUFU1OFZYJmVuY3J5cHRlZElkPUEwNzg0ODYwMjFERVZWWUxBSVY4SiZlbmNyeXB0ZWRBZElkPUEwMDU4MzMzMUs3NlJSSk1GRFpINyZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=}{BMP280} \\
+        WiFi & \href{https://www.amazon.it/AZDelivery-D1-ESP8266-12E-gratuito-compatibile/dp/B0754N794H/ref=sr_1_1_sspa?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=W727GFL7XIBJ&keywords=ESP8688+WeMos+D1+mini&qid=1640171083&sprefix=esp8688+wemos+d1+mini%2Caps%2C367&sr=8-1-spons&psc=1&smid=A1X7QLRQH87QA3&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExNzE4Q0Y4VFUyNFI5JmVuY3J5cHRlZElkPUEwNzAzOTMyMzhCOTlVNVRDR1pMNiZlbmNyeXB0ZWRBZElkPUEwMDUxODk5MUZOSFNZTThWU1ZVWCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=}{ESP8688 WeMos D1 mini} \\
+        \hline
+        RA stepper motor & \href{https://www.amazon.it/STEPPERONLINE-17-motore-passo-passo-Lunghezza-Printer/dp/B00W9A2L3S/ref=sr_1_1?adgrpid=117649322299&gclid=CjwKCAiAtouOBhA6EiwA2nLKH8ZdY33biq2O6MBYrLxrGGbna838i9rDgyfb0UE83qCaOohjlfujbxoCvT0QAvD_BwE&hvadid=496844567197&hvdev=c&hvlocphy=1008611&hvnetw=g&hvqmt=e&hvrand=10877950626045298261&hvtargid=kwd-1017261228647&hydadcr=6280_1837057&keywords=17hm19-2004s1&qid=1640170971&sr=8-1}{17HM19-2004S1 (2.0A)}\\
+        RA motor driver & \href{https://www.amazon.it/KINGPRINT-TMC2209-Stepper-Driver-Printer/dp/B07WC71M4R/ref=sr_1_5?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=16KBTG8Q4M08S&keywords=tmc2209&qid=1640170667&s=industrial&sprefix=tmc2209%2Cindustrial%2C410&sr=1-5}{TMC2209}  \\
+        RA cable & \href{https://www.amazon.it/gp/product/B08PTYKXF3/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1}{microphone 8 poles cables}\\
+        \hline
+        DEC stepper motor & \href{https://www.amazon.it/STEPPERONLINE-passo-passo-Bipolar-42x40mm-stampante/dp/B00W98OYE4/ref=sr_1_1?keywords=17HM15-0904S&qid=1640171032&sr=8-1}{17HM15-0904S (0.9A)}\\
+        DEC motor driver & \href{https://www.amazon.it/KINGPRINT-TMC2209-Stepper-Driver-Printer/dp/B07WC71M4R/ref=sr_1_5?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=16KBTG8Q4M08S&keywords=tmc2209&qid=1640170667&s=industrial&sprefix=tmc2209%2Cindustrial%2C410&sr=1-5}{TMC2209} \\
+        DEC cable & \href{https://www.amazon.it/gp/product/B08PTYKXF3/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1}{microphone 8 poles cables}\\
+        \hline
+        FOCUSER stepper motor & \href{https://www.amazon.it/STEPPERONLINE-passo-passo-Bipolar-28x28x31mm-stampante/dp/B07HHZQMDW/ref=sr_1_1?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=2WGBVPD2S0RHE&keywords=11HS12-0674S&qid=1640171060&sprefix=17hm15-0904s%2Caps%2C99&sr=8-1}{11HS12-0674S}\\
+        FOCUSER motor driver & \href{https://www.amazon.it/PoPprint-TMC2208-V2-1-passo-passo-silenzioso/dp/B07PFDKSZ9/ref=sr_1_1_sspa?__mk_it_IT=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=16KBTG8Q4M08S&keywords=tmc2209&qid=1640170667&s=industrial&sprefix=tmc2209%2Cindustrial%2C410&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExU0tPQUpZRTRJU1VaJmVuY3J5cHRlZElkPUEwMTU0ODM5MUoyNFk0WlhGNUVSRCZlbmNyeXB0ZWRBZElkPUEwOTE2ODc2MVUzRVA0RDk4SjlTRiZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=}{TMC2208} \\
+        FOCUSER cable & \href{https://www.amazon.it/gp/product/B08JQG2CPT/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1}{8 poles cable}
+    \end{tabular}
+    \captionof{table}{Final setup parts and components.}
+    \label{tab:final-setup-components}
+\end{minipage}
+\\
+In table \ref{tab:final-setup-components} we report the components used for the last test, which is the best result we obtained in terms of guiding and in terms of resolution in table \ref{tab:resolution-power-DEC-V1p}.
+We also show our impressions on the various components tested.
 
 The best drivers are the TMC2209.
 They are the most silent, the most quick and precise.
 They are used in our setup for the RA and DEC motors.
-Otherwise for the focuser the TMC2208 driver has been used. 
+Otherwise, for the focuser the TMC2208 driver has been used. 
 
-The best stepper motor is the 17HM19-2004S1 for its superior precision and power, and we have used it in the RA mechanization.
+The best stepper motor is the 17HM19-2004S1 for its superior precision and power, and we have used it in the RA mechanization because of its robustness at high speeds.
 It is worth noticing that the most used one in others project is the 17HM15-0904S stepper motor.
 We have tested it both in the DEC and the RA mechanization, and it does its own work;
-we have used it in the DEC mechanization.
+we have used it in the DEC mechanization because in this mechanism we do not require a lot of torque as in the RA mechanism.
 
+Onstep software has always lived up to expectations.
+Its existence has allowed us to focus on hardware development and not worry about the software side.
+In addition, the OnStep ASCOM drivers were very useful to connect the mount to the computer, and we found no problems in the installation, as we explained earlier.
 
+We use the mobile phone’s Onstep app to perform polar alignment.
+However, at this juncture we find some bugs.
+Sometimes it happens to set the alignment to four stars, then exit from the section "start align" (for example to focus the eyepiece), and returning to the section of the polar alignment we find that this is set on a single star.
+This is a problem because pressing "start align" again asks if the mount is "at home", so you have to start again.
+\\
+\\
+As seen in the test section \ref{sec:tests}, the result are encouraging.
+The auto-guide seem to be stable and quite good since the RMS is lower than 1 for RA and DEC.
+Photography with this configuration have been set up with more than 2 minutes per pose (which was impossible for us before the devolving of this project).
+We think it is possible to increase the exposure time without problems.
+
+As a final consideration, before buying an expensive telescope and mount, consider the idea of converting, if you have it, your old telescope, and then enjoy its developing!

@@ -1,4 +1,31 @@
 \section{Cable management}
+\label{sec:cable-menagement}
+\begin{figure*}
+    \centering
+    \begin{subfigure}[t!]
+        {0.3\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{BOX.jpg}
+        \caption{The main box containing the electronics and its easy management Ethernet connections.}
+        \label{fig:box}
+    \end{subfigure}
+    \begin{subfigure}[t!]
+        {0.3\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{RA-box.jpg}
+        \caption{The RA motor box containing the stepper motor and its Ethernet socket.}
+        \label{fig:RA-box}
+    \end{subfigure}
+    \begin{subfigure}[t!]
+        {0.3\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{FOCUSER-box.jpg}
+        \caption{The focuser box containing the focuser stepper motor and its Ethernet socket.}
+        \label{fig:focuser-box}
+    \end{subfigure}
+    \caption{Plastic boxes.}
+    \label{fig:plastic-boxes}
+\end{figure*}
 The wiring between the electronics and the motors is made focusing on the main idea to attach and detach them rapidly.
 We thought to use Ethernet cables.
 They are a versatile solution but how to connect them to the four cables governing the stepper motor?
@@ -29,27 +56,3 @@ Using a 3D printer, we have created the focuser motor box with the Ethernet exit
 The microcontroller, the CNC3 shield, the power supply and all the electronics have been thrown in a box.
 The stepper motors drivers after a while become very hot, then we have decided to put a fan in the box.
 In figures \ref{fig:box}, \ref{fig:RA-box} and \ref{fig:focuser-box} are shown the resulting plastic boxes.
-
-\begin{minipage}
-    {0.5\textwidth}
-    \centering
-    \includegraphics[scale=0.5]{BOX.jpg}
-    \captionof{figure}{The main box containing the electronics and its easy management Ethernet connections.}
-    \label{fig:box}
-\end{minipage}
-
-\begin{minipage}
-    {0.5\textwidth}
-    \centering
-    \includegraphics[scale=0.5]{RA-box.jpg}
-    \captionof{figure}{The RA motor box containing the stepper motor and its Ethernet socket.}
-    \label{fig:RA-box}
-\end{minipage}
-
-\begin{minipage}
-    {0.5\textwidth}
-    \centering
-    \includegraphics[scale=0.5]{FOCUSER-box.jpg}
-    \captionof{figure}{The focuser box containing the focuser stepper motor and its Ethernet socket.}
-    \label{fig:focuser-box}
-\end{minipage}

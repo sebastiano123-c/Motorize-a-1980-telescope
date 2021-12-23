@@ -1,11 +1,5 @@
-
-    % \begin{minipage}{0.5\textwidth}
-%     \centering
-%     \includegraphics[scale=0.04]{DSC_5264_00001.jpg}
-%     \captionof{figure}{Final result: our brand-new telescope.}
-% \end{minipage}
-
 \section{Telescope description}
+\label{sec:telescope-description}
 The starting point of the project is of course the telescope.
 In our garage, for many years, a 1980 Urania telescope has eaten a lot of dust.
 The telescope's mirror resent of years in humidity and temperature jumps in the garage.
@@ -120,31 +114,34 @@ Indeed, since Skywatcher's telescope diameter is 200mm it does not fit inside th
 Our solution is to insert a seat in which to place the telescope.
 The barycenter of the telescope is not centered with the DEC axis, thus we have settled a post capable of holding weights to balance the forces.
 See figure \ref{fig:piastra_DEC} and \ref{fig:piastra_particular}.
-\\
-\begin{minipage}{0.25\textwidth}
-    \centering
-    \includegraphics[scale=0.5]{DEC_sede.jpg}
-    \captionof{figure}{The mechanism built to insert Skywatcher's telescope into the Urania robust mount.}
-    \label{fig:piastra_DEC}
-\end{minipage}
-\begin{minipage}
-    {0.25\textwidth}
-    \centering
-    \includegraphics[scale=0.5]{DEC_piastra.jpg}
-    \captionof{figure}{detail of the replacement plate that supports the new telescope.}
-    \label{fig:piastra_particular}
-\end{minipage}
-\\
+\begin{figure*}
+    \begin{subfigure}[t!]
+        {0.25\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{DEC_sede.jpg}
+        \caption{The mechanism built to insert Skywatcher's telescope into the Urania robust mount.}
+        \label{fig:piastra_DEC}
+    \end{subfigure}
+    \begin{subfigure}[t!]
+        {0.25\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{DEC_piastra.jpg}
+        \caption{detail of the replacement plate that supports the new telescope.}
+        \label{fig:piastra_particular}
+    \end{subfigure}
+    \begin{subfigure}[t!]
+        {0.5\textwidth}
+        \centering
+        \includegraphics[scale=0.75]{DEC_piastra_dimensioni.png}
+        \caption{Schematic view of the telescope mount insertion.
+        This represents only the installation build with some squared metal bars upon which the two white loops (which hold the telescope tube) are fixed and are not illustrated in this scheme. The two holes in each arm serve to fix the structure on the mount. }
+        \label{fig:DEC_piastra_dimensioni}
+    \end{subfigure}
+    \caption{Telescope seat.}
+    \label{fig:telescope-substitution}
+\end{figure*}
+
 The scheme with distances is visible in figure \ref{fig:DEC_piastra_dimensioni}.
-\\
-\begin{minipage}
-    {0.5\textwidth}
-    \centering
-    \includegraphics[scale=0.75]{DEC_piastra_dimensioni.png}
-    \captionof{figure}{Schematic view of the telescope mount insertion.
-    This represents only the installation build with some squared metal bars upon which the two white loops (which hold the telescope tube) are fixed and are not illustrated in this scheme. The two holes in each arm serve to fix the structure on the mount. }
-    \label{fig:DEC_piastra_dimensioni}
-\end{minipage}
 
 Lastly, to enhance the fluidity of motion and reduce the backlash, the rotation mechanism is enriched with a system of two bearings for each fork arm, one is place inside, see figure \ref{fig:cuscinetto-slim}, and one is fixed externally on the mount, see figure \ref{fig:cuscinetto-DEC}.
 \\
@@ -163,3 +160,22 @@ Lastly, to enhance the fluidity of motion and reduce the backlash, the rotation 
     \captionof{figure}{External bearing mounted on one fork arm.}
     \label{fig:cuscinetto-DEC}
 \end{minipage}
+
+% \begin{figure*}
+%     \begin{subfigure}[h!]
+%         {.5\textwidth}
+%         \centering
+%         \includegraphics[scale=.45]{cuscinetto-slim.jpg}
+%         \caption{Internal bearing mounted on one fork arm.}
+%         \label{fig:cuscinetto-slim}
+%     \end{subfigure}
+%     \begin{subfigure}[h!]
+%         {.5\textwidth}
+%         \centering
+%         \includegraphics[scale=.45]{cuscinetto-dec.jpg}
+%         \caption{External bearing mounted on one fork arm.}
+%         \label{fig:cuscinetto-DEC}
+%     \end{subfigure}
+%     \caption{Bearings mounted on the fork.}
+%     \label{fig:bearings}
+% \end{figure*}

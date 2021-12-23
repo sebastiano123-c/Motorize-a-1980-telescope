@@ -1,4 +1,5 @@
-\section{Motorization: microcontrollers}
+\section{Electronics}
+\label{sec:electronics}
 
 \subsection{ESP32}
 ESP32 is a series of low-cost, low-power system on a chip microcontroller with integrated Wi-Fi and dual-mode Bluetooth.
@@ -114,6 +115,8 @@ The power supply is provided by a 19V 5A power supply as in table \ref{tab:power
 For our initial purposes it was enough, indeed 5A are enough to feed quite well two stepper motors and a poor electronics.
 A rough estimation poses 1.8A for DEC motor, 0.9A for RA motor and few milliampéres for the ESP32. 
 The reader is strongly encouraged to check the total current its circuit needs before buying a power supply.
+
+To provide the 3.3V tension to the microcontroller, a ICQUANZX voltage regulator is place between the power supply and the ESP32.
 
 \subsection{Sensors: Wi-Fi connection, Real time clock (RTC) and weather sensor (BMP280)}
 An ESP8688 WeMos D1 mini is connected to the CNC3 as shown in \url{https://onstep.groups.io/g/main/wiki/19670}.
