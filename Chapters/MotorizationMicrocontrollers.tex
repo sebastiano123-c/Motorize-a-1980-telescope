@@ -57,21 +57,28 @@ OnStep is an open source software providing the control of four stepper motors (
 % \end{figure*}
 
 \subsection{CNC Shield V3}
-To better optimize space and wires connections, we have bought a CNC Shield V3 (aka CNC3), see figure \ref{fig:cnc3}.
+To better optimize space and wires connections, we have bought a CNC Shield V3 (a.k.a. CNC3), see figure \ref{fig:cnc3}.
 
-It is a shield built to be used for 3D printers.
+It is a printed circuit board (PCB) built for 3D printers.
 The shield is attached directly above the ESP32.
 It has four slots, each one can host a motor driver, thus using this shield there can be handled four stepper motors: RA and DEC motors, first focuser and photography rotator or second focuser.
 
 This shield can be "manipulated" to obtain better performances.
 
 \subsection{CNC3 modifications}
-\hl{aggiungere qui}
+CNC3 shield does non permit "on the fly" change of microstepping since they are achieved via the MS0\(/\)MS1\(/\)MS2 fixed jumpers below the motor drivers. This means that you cannot have different microstepping for tracking and slewing unless you use TMC2130 or TMC5160 through SPI interface. To overcome this CNC3 limit when using other drivers (\textit{e.g.} TMC2209 that are very silent, guarantee a 2A current per phase and are somehow cheap), it is necessary to do some soldering on the CNC3 and the TMC2209 and modify the pinmap "Pins.CNC3.h".
 \subsubsection{Microsteps control}
-\hl{aggiungere qui}
+First of all it is necessary to configure the TM2209 stepper driver (TMC2209 Bigtreetech v1.2) to remove the Spread shunt (that controls StealthChop vs SpreadCycle mode) on the TMC2209 board and then wire connect the Spread to pin 5 of J1, see figures \ref{fig:tmc-spread1} \ref{fig:tmc-spread2}.
 
-\subsubsection{Microsteps gotos control}
-\hl{aggiungere qui}
+Finally, you have to cut the low pin 5 of J1 on the TMC2209 driver since it is shortcutted with pin 6 (CLK) on the CNC3, see figure \ref{fig:tmc-spread3}.
+
+At this point, we have a wire connected (some soldering) the MS0 and MS1 of Axis X to the SpnEn and SpnDir pins of CNC3 respectively. In the same way, we have a wire that connected the MS0 and MS1 of Axis Y to the HOLD and ABORT pins respectively. In this way, we are able, after modifying the pinmap in "Pins.CNC3.h" to control the microstepping in Tracking and Goto both in RA and DEC.
+You can find the modified Pinmap "Pins.CNC3.h" \href{https://github.com/sebastiano123-c/Motorize-a-1980-telescope/blob/main/OnStep/src/pinmaps/Pins.CNC3.h}{here}.
+
+The last modification is simply to connect with a wire jumper pin 5 of TMC2209 of AXIS X to the pin IO0 of the WeMos D1 R32 as well as connect pin 5 of TMC2209 of AXIS Y to the pin Z\(-\) of the CNC3.
+With this done we able to set programmatically (via Config.h) the SpreadCycle (StealthChop) mode using the TMC2209\(\_\)QUIET (TMC2209\(\_\)VQUIET) constants.
+
+\href{https://github.com/sebastiano123-c/Motorize-a-1980-telescope/blob/main/OnStep/Config.h}{Here} is the updated "Config.h".
 
 \subsection{Motor drivers}
 A stepper motors works only with a driver chip that controls the motor movements.
@@ -131,6 +138,33 @@ Remember to reduce to value by a 10\%-30\%.
     \captionof{table}{DRV8825 drivers setup current. Note that we have set a value smaller than the one calculated to prevent motor to break.}
     \label{tab:drivers_curr}
 \end{minipage} 
+
+
+\begin{figure*}
+    \begin{subfigure}[t!]
+        {0.33\textwidth}
+        \centering
+        \includegraphics[scale=0.5]{TMC2209_Spread1.png}
+        \caption{TMC2209 driver with highlighted modifications. }
+        \label{fig:tmc-spread1}
+    \end{subfigure}
+    \begin{subfigure}[t!]
+        {0.33\textwidth}
+        \centering
+        \includegraphics[scale=0.18]{TMC2209_Spread2.jpg}
+        \caption{Connection of the Spread pin to pin 5 by wire.}
+        \label{fig:tmc-spread2}
+    \end{subfigure}
+    \begin{subfigure}[t!]
+        {0.33\textwidth}
+        \centering
+        \includegraphics[scale=0.6]{TMC2209_Spread3.png}
+        \captionof{figure}{ Cut low pin 5. }
+        \label{fig:tmc-spread3}
+    \end{subfigure}
+    \caption{CNC3 modifications.}
+    \label{fig:cnc3-mod}    
+\end{figure*}
 
 \subsection{Power supply}
 The power supply is provided by a 19V 5A power supply as in table \ref{tab:power_supply}.
