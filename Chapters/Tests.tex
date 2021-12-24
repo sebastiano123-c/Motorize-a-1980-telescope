@@ -33,7 +33,7 @@ The extrapolated statistics is reported in table \ref{tab:DEC-V3-statistics}.
 \begin{minipage}
     {.5\textwidth}
     \begin{tabular}{ccc}
-        \textbf{Mechanism} & \textbf{microsteps (x360$^{\circ}$)} &\textbf{resolution ('')}\\
+        \textbf{Mechanism} & \textbf{microsteps (x360$^{\circ}$)} &\textbf{estimated resolution ('')}\\
         \hline
         RA  & 19200 & 0.21\\ 
         DEC & 12800 & 0.65
@@ -43,7 +43,8 @@ The extrapolated statistics is reported in table \ref{tab:DEC-V3-statistics}.
 \end{minipage}
 \\
 After the calibration, we have pointed the Rosetta nebula and start tracking.
-The result can be seen in figure \ref{fig:guide-11-arcsec} and \ref{fig:guide-11-pixel}.
+The result can be seen in figure \ref{fig:guide-11-arcsec}.
+The sky condition was very nice that night with a seeing of \(0.98''\).
 \\
 \begin{minipage}{.4\textwidth}
     \centering
@@ -61,7 +62,7 @@ The result can be seen in figure \ref{fig:guide-11-arcsec} and \ref{fig:guide-11
         Polar Alignment Error& 8.7'&\\
         \hline
     \end{tabular}
-    \captionof{table}{DEC V3 test: statistics of the guiding.}
+    \captionof{table}{DEC V3 test: statistics of the guiding of figure \ref{fig:guide-11-arcsec}.}
     \label{tab:DEC-V3-statistics}
 \end{minipage}
 
@@ -73,32 +74,34 @@ The extrapolated statistics is reported in table \ref{tab:DEC-V1p-statistics}.
 \begin{minipage}
     {.5\textwidth}
     \begin{tabular}{ccc}
-        \textbf{Mechanism} & \textbf{microsteps (x360$^{\circ}$)} &\textbf{resolution ('')}\\
+        \textbf{Mechanism} & \textbf{microsteps (x360$^{\circ}$)} &\textbf{estimated resolution ('')}\\
         \hline
-        RA  & \hl{add} & \hl{add}\\ 
-        DEC & \hl{add} & \hl{add}
+        RA  & 51058 & 0.24\\ 
+        DEC & 25600 & 0.48
     \end{tabular}
     \captionof{table}{Resolution power using the DEC V1+ mechanism. Microsteps is intended as the total number of microsteps around the entire circumference.}
     \label{tab:resolution-power-DEC-V1p}
 \end{minipage}
 \\
-After the calibration, we have pointed the Rosetta nebula and start tracking.
-The result can be seen in figure \hl{add}.
+After the calibration, we have pointed Aldebaran and start tracking.
+The result can be seen in figure \ref{fig:guide-7-arcsec}.
+We point out that the sky condition was not optimal since the seeing was \(1.80''\).
+The latter parameter effect with spurious drifts the guiding.
 \\
 \begin{minipage}{.4\textwidth}
     \centering
     \begin{tabular}{ccc}
         \textbf{Statistics}&RMS&Peak\\
         \hline
-        RA   & \hl{add}&\hl{add}\\
-        DEC  & \hl{add}&\hl{add}\\
-        Total& \hl{add}&\\
+        RA   & 0.66" (0.20 px) & -2.04" (-0.63 px)  \\
+        DEC  & 0.63" (0.20 px) & -2.40" (-0.75 px) \\
+        Total& 0.91" (0.28 px) &\\
         \\
         \textbf{Drift}& ("/min) & (px/min)\\
         \hline
-        RA& \hl{add}"/min& \hl{add} px/min\\
-        Dec& \hl{add}"/min& \hl{add} px/min\\
-        Polar Alignment Error& \hl{add}'&\\
+        RA& +3.39"/min & +1.05 px/min\\
+        Dec& -3.65"/min & -1.13 px/min\\
+        Polar Alignment Error&  14.5'&\\
         \hline
     \end{tabular}
     \captionof{table}{DEC V1+ test: statistics of the guiding.}
