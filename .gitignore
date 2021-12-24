@@ -23,3 +23,11 @@
 !/OnStep/src/pinmaps
 /OnStep/src/pinmaps/*
 !/OnStep/src/pinmaps/Pins.CNC3.h
+
+# comment to publish
+!/Chapters
+!/Chapters/**
+!/images
+!/images/**
+!/Commons
+!/Commons/**
