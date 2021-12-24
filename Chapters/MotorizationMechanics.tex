@@ -1,3 +1,29 @@
+
+\begin{figure*}
+    \begin{minipage}[c][10cm][c]{0.5\textwidth}
+        \centering
+        \vspace*{\fill}
+        \includegraphics[height=4.5cm]{DEC-v3.jpg}
+        \subcaption{DEC V1 mechanism.}
+        \label{fig:DEC_mechanism_v3}
+        
+        \addtocounter{subfigure}{1}
+        \includegraphics[height=4.5cm]{DEC-v4.jpg}
+        \addtocounter{subfigure}{-2}
+        \subcaption{DEC V1+ mechanism.}
+        \label{fig:DEC_mechanism_v1p} 
+    \end{minipage}
+    \begin{minipage}[c][10cm][t]{0.5\textwidth}
+        \vspace*{\fill}
+        \centering
+        \includegraphics[height=9cm]{RA_motorization.jpg}
+        \subcaption{RA mechanism.}
+        \label{fig:RA_mechanization}
+    \end{minipage}
+    \caption{RA and two of the many versions of the DEC mechanization.}
+    \label{fig:dec-versions}
+\end{figure*}
+
 \section{Mechanization}
 \label{sec:mechanization}
 
@@ -28,31 +54,6 @@
 %     \caption{RA and two of the many versions of the DEC mechanization.}
 %     \label{fig:dec-versions}
 % \end{figure*}
-
-\begin{figure*}
-    \begin{minipage}[c][10cm][c]{0.5\textwidth}
-        \centering
-        \vspace*{\fill}
-        \includegraphics[height=4.5cm]{DEC-v3.jpg}
-        \subcaption{DEC V1 mechanism.}
-        \label{fig:DEC_mechanism_v3}
-        
-        \addtocounter{subfigure}{1}
-        \includegraphics[height=4.5cm]{DEC-v4.jpg}
-        \addtocounter{subfigure}{-2}
-        \subcaption{DEC V1+ mechanism.}
-        \label{fig:DEC_mechanism_v1p} 
-    \end{minipage}
-    \begin{minipage}[c][10cm][t]{0.5\textwidth}
-        \vspace*{\fill}
-        \centering
-        \includegraphics[height=9cm]{RA_motorization.jpg}
-        \subcaption{RA mechanism.}
-        \label{fig:RA_mechanization}
-    \end{minipage}
-    \caption{RA and two of the many versions of the DEC mechanization.}
-    \label{fig:dec-versions}
-\end{figure*}
 
 The motorization of the telescope passes through two mechanics adjustments:
 \begin{enumerate}
@@ -101,7 +102,7 @@ On the edge of the latter are present some ticks and grades: it was used a decli
 
 As told above, we have tried different configurations, but same stepper motor is used.
 
-\subsection{DEC V1}
+\subsubsection{DEC V1}
 Using a 3D printer we have designed a double-belt gear.
 Then, a 1/10 ratio is obtained using a worm gear and another 1/3 is obtained between the worm and the final gear.
 The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v3}.
@@ -125,7 +126,7 @@ where \(th.\) stands for theoretical and \(est.\) stands for estimated.
     \label{tab:DEC_gear_spec_v3}
 \end{minipage}
 
-\subsection{DEC V1+}
+\subsubsection{DEC V1+}
 Starting from the DEC V1, we have designed a new gear to get a bigger reduction ratio (this is the reason for the +).
 The total reduction with all gear specifics is reported in table \ref{tab:DEC_gear_spec_v1p}.
 Figure \ref{fig:DEC_mechanism_v1p} is a picture of the mechanism.

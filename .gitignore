@@ -33,3 +33,6 @@
 
 # remove latex intermediate files
 *.aux
+
+# remove svg files
+*.svg

@@ -8,4 +8,5 @@ The software parts are provided by [OnStep](https://github.com/hjd1964/OnStep) a
 
 # Theory
 All the steps are reported in the [documentation](https://github.com/sebastiano123-c/Motorize-a-1980-telescope/blob/main/documentation.pdf).
-3D printed parts are stored in the [hardware](https://github.com/sebastiano123-c/Motorize-a-1980-telescope/tree/main/Hardware) folder.
+3D printed parts are stored in the [Hardware](https://github.com/sebastiano123-c/Motorize-a-1980-telescope/tree/main/Hardware) folder.
+Pinout design for the electronic parts are visible in the [Setup]{https://github.com/sebastiano123-c/Motorize-a-1980-telescope/tree/main/Setup} folder.
