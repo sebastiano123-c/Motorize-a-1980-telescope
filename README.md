@@ -1,6 +1,5 @@
 # Motorize-a-1980-telescope
-If you, like me, find an old and dusty telescope in our garage, wouldn't you want it to work as the best motorized telescopes?
-Here, you will find the transformation of my Urania equatorial telescope on the way to 2.0.
+If, like me, you find an old dusty telescope in our garage, wouldn’t you want it to work like one of the best motorized telescopes? Here, you will find the transformation of my equatorial Urania telescope on the way to 2.0.
 
 # Description
 In this repo you find a _roadmap_ to modernize your telescope mount.
