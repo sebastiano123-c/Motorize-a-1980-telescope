@@ -13,17 +13,13 @@
 # OnStep file to be preserved
 !/OnStep
 /OnStep/*
+
 # save Config.h
 !/OnStep/Config.h
+
 # save pinmap
 !/OnStep/src
 /OnStep/src/*
 !/OnStep/src/pinmaps
 /OnStep/src/pinmaps/*
 !/OnStep/src/pinmaps/Pins.CNC3.h
-
-# remove latex intermediate files
-*.aux
-
-# remove svg files
-*.svg
