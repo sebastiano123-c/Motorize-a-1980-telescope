@@ -23,13 +23,13 @@
 !/OnStep/src/pinmaps/Pins.CNC3.h
 
 # Once the repo will be public, comment out this
-!documentation.tex
-!/images
-!/images/**
-!/Chapters
-!/Chapters/*
-!/Commons
-!/Commons/*
+# !documentation.tex
+# !/images
+# !/images/**
+# !/Chapters
+# !/Chapters/*
+# !/Commons
+# !/Commons/*
 
 # remove latex intermediate files
 *.aux

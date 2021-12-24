@@ -26,7 +26,7 @@ OnStep is an open source software providing the control of four stepper motors (
         \vspace*{\fill}
         \centering
         \includegraphics[scale=0.5]{Fritzing/circuit-design_bb.png}
-        \subcaption{Circuit design.}
+        \subcaption{Circuit design. \href{https://github.com/sebastiano123-c/Motorize-a-1980-telescope/blob/main/Setup/circuit-design_bb.png}{Here} can be found the png file.}
         \label{fig:circuit-design}
     \end{minipage}
     \caption{Main board components: (a) WeMos D1 R32 ESP32 board, (b) CNC shield V3 and (c) the circuit design: the Arduino board is instead a ESP32 board, like the one of figure (a); the white cables are our modifications on the board.}
@@ -65,21 +65,6 @@ It has four slots, each one can host a motor driver, thus using this shield ther
 
 This shield can be "manipulated" to obtain better performances.
 
-\subsection{CNC3 modifications}
-CNC3 shield does non permit "on the fly" change of microstepping since they are achieved via the MS0\(/\)MS1\(/\)MS2 fixed jumpers below the motor drivers. This means that you cannot have different microstepping for tracking and slewing unless you use TMC2130 or TMC5160 through SPI interface. To overcome this CNC3 limit when using other drivers (\textit{e.g.} TMC2209 that are very silent, guarantee a 2A current per phase and are somehow cheap), it is necessary to do some soldering on the CNC3 and the TMC2209 and modify the pinmap "Pins.CNC3.h".
-\subsubsection{Microsteps control}
-First of all it is necessary to configure the TM2209 stepper driver (TMC2209 Bigtreetech v1.2) to remove the Spread shunt (that controls StealthChop vs SpreadCycle mode) on the TMC2209 board and then wire connect the Spread to pin 5 of J1, see figures \ref{fig:tmc-spread1} \ref{fig:tmc-spread2}.
-
-Finally, you have to cut the low pin 5 of J1 on the TMC2209 driver since it is shortcutted with pin 6 (CLK) on the CNC3, see figure \ref{fig:tmc-spread3}.
-
-At this point, we have a wire connected (some soldering) the MS0 and MS1 of Axis X to the SpnEn and SpnDir pins of CNC3 respectively. In the same way, we have a wire that connected the MS0 and MS1 of Axis Y to the HOLD and ABORT pins respectively. In this way, we are able, after modifying the pinmap in "Pins.CNC3.h" to control the microstepping in Tracking and Goto both in RA and DEC.
-You can find the modified Pinmap "Pins.CNC3.h" \href{https://github.com/sebastiano123-c/Motorize-a-1980-telescope/blob/main/OnStep/src/pinmaps/Pins.CNC3.h}{here}.
-
-The last modification is simply to connect with a wire jumper pin 5 of TMC2209 of AXIS X to the pin IO0 of the WeMos D1 R32 as well as connect pin 5 of TMC2209 of AXIS Y to the pin Z\(-\) of the CNC3.
-With this done we able to set programmatically (via Config.h) the SpreadCycle (StealthChop) mode using the TMC2209\(\_\)QUIET (TMC2209\(\_\)VQUIET) constants.
-
-\href{https://github.com/sebastiano123-c/Motorize-a-1980-telescope/blob/main/OnStep/Config.h}{Here} is the updated "Config.h".
-
 \subsection{Motor drivers}
 A stepper motors works only with a driver chip that controls the motor movements.
 Three types of drivers have been used during the configuration of the setup.
@@ -105,11 +90,14 @@ We recommend reducing the theoretical value by a 10\%-30\% to prevent motor dang
 \subsubsection{DRV8825}
 For these drivers the tension to be set is roughly the half of the value of the nominal current/phase of the motor.
 For example, if the motor has a current/phase \(1\)A, the tension would be \(0.5\)V.
-
+\\
+\\
 \begin{minipage}
     {.4\textwidth}
+    \centering
     \begin{tabular}{cc}
-        Current phaser (A) & Current (A) \\
+        \hline
+        \textbf{Current phaser (A)} & \textbf{Current (A)} \\
         \hline
         0.90 & 0.45 \\
         2.00 & 0.90             
@@ -139,7 +127,6 @@ Remember to reduce to value by a 10\%-30\%.
     \label{tab:drivers_curr}
 \end{minipage} 
 
-
 \begin{figure*}
     \begin{subfigure}[t!]
         {0.33\textwidth}
@@ -162,9 +149,24 @@ Remember to reduce to value by a 10\%-30\%.
         \captionof{figure}{ Cut low pin 5. }
         \label{fig:tmc-spread3}
     \end{subfigure}
-    \caption{CNC3 modifications.}
+    \caption{TMC2209 modifications.}
     \label{fig:cnc3-mod}    
 \end{figure*}
+
+\subsection{CNC3 and TMC2209 modifications}
+CNC3 shield does non permit "on the fly" change of microstepping since they are achieved via the MS0\(/\)MS1\(/\)MS2 fixed jumpers below the motor drivers. This means that you cannot have different microstepping for tracking and slewing unless you use TMC2130 or TMC5160 through SPI interface. To overcome this CNC3 limit when using other drivers (\textit{e.g.} TMC2209 that are very silent, guarantee a 2A current per phase and are somehow cheap), it is necessary to do some soldering on the CNC3 and the TMC2209 and modify the pinmap "Pins.CNC3.h".
+\subsubsection{Microsteps control}
+First of all it is necessary to configure the TM2209 stepper driver (TMC2209 Bigtreetech v1.2) to remove the Spread shunt (that controls StealthChop vs SpreadCycle mode) on the TMC2209 board and then wire connect the Spread to pin 5 of J1, see figures \ref{fig:tmc-spread1} \ref{fig:tmc-spread2}.
+
+Finally, you have to cut the low pin 5 of J1 on the TMC2209 driver since it is shortcutted with pin 6 (CLK) on the CNC3, see figure \ref{fig:tmc-spread3}.
+
+At this point, we have a wire connected (some soldering) the MS0 and MS1 of Axis X to the SpnEn and SpnDir pins of CNC3 respectively. In the same way, we have a wire that connected the MS0 and MS1 of Axis Y to the HOLD and ABORT pins respectively. In this way, we are able, after modifying the pinmap in "Pins.CNC3.h" to control the microstepping in Tracking and Goto both in RA and DEC.
+You can find the modified Pinmap "Pins.CNC3.h" \href{https://github.com/sebastiano123-c/Motorize-a-1980-telescope/blob/main/OnStep/src/pinmaps/Pins.CNC3.h}{here}.
+
+The last modification is simply to connect with a wire jumper pin 5 of TMC2209 of AXIS X to the pin IO0 of the WeMos D1 R32 as well as connect pin 5 of TMC2209 of AXIS Y to the pin Z\(-\) of the CNC3.
+With this done we able to set programmatically (via Config.h) the SpreadCycle (StealthChop) mode using the TMC2209\(\_\)QUIET (TMC2209\(\_\)VQUIET) constants.
+
+\href{https://github.com/sebastiano123-c/Motorize-a-1980-telescope/blob/main/OnStep/Config.h}{Here} is the updated "Config.h".
 
 \subsection{Power supply}
 The power supply is provided by a 19V 5A power supply as in table \ref{tab:power_supply}.

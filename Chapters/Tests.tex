@@ -1,3 +1,16 @@
+\begin{figure*}[t]
+    \centering
+    \includegraphics[scale=0.45]{analysis/PHD2/2021-12-09/guide-11-arcsec.png}
+    \caption{DEC V1 test: PHD2 log view using arcseconds as units. In pixel the scale is in the range \([-0.4,0.4]\). The sky seeing was \(0.98''\).}
+    \label{fig:guide-11-arcsec}
+\end{figure*}
+\begin{figure*}[t]
+    \centering
+    \includegraphics[scale=0.45]{analysis/PHD2/2021-12-23/guide-7-arcsec.png}
+    \caption{DEC V1+ test: PHD2 log view using arcseconds as units. In pixel the scale is in the range \([-0.5, 0.75]\). The sky seeing was \(1.80''\).}
+    \label{fig:guide-7-arcseconds}
+\end{figure*}
+
 \section{Tests}
 \label{sec:tests}
 % Sidereal tracking is done by the OnStep software, of course.
@@ -30,13 +43,16 @@ The DEC V1 has been developed to reduce the mechanism backlash using the idea \t
 The resolution power of the mount is reported in table \ref{tab:resolution-power-DEC-V3}.
 The extrapolated statistics is reported in table \ref{tab:DEC-V3-statistics}.
 \\
+\\
 \begin{minipage}
     {.5\textwidth}
-    \begin{tabular}{ccc}
+    \begin{tabular}{c|c|c}
+        \hline
         \textbf{Mechanism} & \textbf{microsteps (x360$^{\circ}$)} &\textbf{estimated resolution ('')}\\
         \hline
         RA  & 19200 & 0.21\\ 
-        DEC & 12800 & 0.65
+        DEC & 12800 & 0.65\\
+        \hline
     \end{tabular}
     \captionof{table}{Resolution power using the DEC V1 mechanism. Microsteps is intended as the total number of microsteps around the entire circumference.}
     \label{tab:resolution-power-DEC-V3}
@@ -54,6 +70,7 @@ The sky condition was very nice that night with a seeing of \(0.98''\).
         RA& 0.47" (0.15 px)& 1.87" ( 0.58 px)\\
         DEC& 0.90" (0.28 px)&-8.12" (-2.52 px)\\
         Total& 1.02" (0.32 px)&\\
+        \hline
         \\
         \textbf{Drift}& ("/min) & (px/min)\\
         \hline
@@ -62,7 +79,7 @@ The sky condition was very nice that night with a seeing of \(0.98''\).
         Polar Alignment Error& 8.7'&\\
         \hline
     \end{tabular}
-    \captionof{table}{DEC V3 test: statistics of the guiding of figure \ref{fig:guide-11-arcsec}.}
+    \captionof{table}{DEC V1 test: statistics of the guiding of figure \ref{fig:guide-11-arcsec}.}
     \label{tab:DEC-V3-statistics}
 \end{minipage}
 
@@ -96,6 +113,7 @@ The latter parameter effect with spurious drifts the guiding.
         RA   & 0.66" (0.20 px) & -2.04" (-0.63 px)  \\
         DEC  & 0.63" (0.20 px) & -2.40" (-0.75 px) \\
         Total& 0.91" (0.28 px) &\\
+        \hline
         \\
         \textbf{Drift}& ("/min) & (px/min)\\
         \hline
