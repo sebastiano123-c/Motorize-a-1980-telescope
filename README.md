@@ -4,7 +4,9 @@
 </div>
 <div align="center">"Always know where your towel is"  -   Hitchiker's guide to the galaxy </div> -->
 <h1 align="center">
-Motorize-a-1980-telescope
+  <b>
+    Motorize-a-1980-telescope
+  </b>
 </h1>
 <h3  align="center" style="font-style:italic; color: Gray">Kepler1 - a OnStep project</h3>
 <p align="center">
@@ -25,3 +27,6 @@ All the steps are reported in the [documentation](https://github.com/sebastiano1
 The software parts are provided by [OnStep](https://github.com/hjd1964/OnStep) and there you'll find how to install the software and choose your best approach that fits your mount.
 3D printed parts are stored in the [Hardware](https://github.com/sebastiano123-c/Motorize-a-1980-telescope/tree/main/Hardware) folder.
 Pinout design for the electronic parts are visible in the [Setup](https://github.com/sebastiano123-c/Motorize-a-1980-telescope/tree/main/Setup) folder.
+
+# Roadmap
+In the future, we will try to obtain better tracking resolutions and faster slew rates.
